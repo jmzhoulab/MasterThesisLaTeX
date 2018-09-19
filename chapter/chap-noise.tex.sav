@@ -1,0 +1,350 @@
+%%!Mode:: "Tex:UTF-8"
+
+
+\chapter{部分转移概率未知带噪声干扰的复杂网络同步问题}
+        本章继续讨论带有部分未知转移率的马氏耦合复杂网络同步问题. 与上章不同的是, 本章的模型考虑网络带有噪声的干扰, 并且噪声干扰是存在与耦合结构当中, 而非仅仅是自身动力当中. 在控制方法上, 分别利用集中式和分散式的事件激发方法去驱使网络实现同步.
+\section{网络模型描述}
+
+        一个未受控制带有随机噪声干扰的马氏切换复杂网络模型如下:
+        \begin{equation}\label{sys:gensys}
+        \begin{split}
+            \dot{\bm{x}}_{i}(t)=\bm{f}(\bm{x}_{i}(t))-\rho(t)\sum^N_{j=1}l_{ij}(\sigma_t)\Gamma[\bm{x}_{j}(t)-\bm{x}_{i}(t)+(\varepsilon_{ij}(t)\otimes\bm{1_n})\xi_{ij}(t)],\quad i=1,2,\cdots,N,
+        \end{split}
+        \end{equation}
+      其中$\varepsilon_{ij}(t)\geq 0$是噪声强度, $\xi_{ij}(t)$是标准白噪声过程. 将网络 \eqref{sys:gensys} 写成微分形式如下:
+      \begin{align}\label{sys-dt}
+      \nonumber d\bm{x}_{i}(t)=&\Big[\bm{f}(\bm{x}_{i}(t))-\rho(t)\sum^N_{j=1}l_{ij}(\sigma_t)\Gamma(\bm{x}_{j}(t)-\bm{x}_{i}(t))\Big]dt\\
+      &-\rho(t)\sum^N_{j=1}l_{ij}(\sigma_t)\Gamma(\varepsilon_{ij}(t)\otimes\bm{1_n})dw_{ij}(t), \quad i = 1,\cdots,N,
+        \end{align}
+       其中$w_{ij}(t)$是定义在$(\Omega,\mathcal{F},P)$上的标准布朗运动, 满足$E\{dw_{ij}(t)=0\}$以及$E\{[dw_{ij}(t)]^2\}=dt$.
+
+         \begin{lem}\label{ET}\cite{differential}
+        Consider a stochastic delayed differential equation with Markovian switching of the form
+        $$d\bm x(t)\!=\!\bm f(t,\bm x(t),\bm x(t-\tau),r(t))dt+\sigma(t,\bm x(t),\bm x(t-\tau))d\bm w(t),$$
+        on $t\geq 0$ with initial value $\bm x_0=\zeta \in C_{F_0}^b([-\tau,0];\mathbb{R}^n)$, where
+        $$ \bm f:\mathbb{R}^n\times \mathbb{R}_{+}\times S \rightarrow \mathbb{R}^n,  \quad  \sigma:\mathbb{R}^n\times \mathbb{R}_{+}\times S \rightarrow \mathbb{R}^{n\times m}.$$
+        Let $C^{2,1}(\mathbb{R}_{+}\times \mathbb{R}^n;\mathbb{R}_{+})$ be the family of all the nonnegative functions $V(t,\bm x,r)$ on $\mathbb{R}^n\times \mathbb{R}_{+}\times S$ that are twice continuously differentiable in $\bm x$ and once differentiable in $t$. Let $V\in C^{2,1}(\mathbb{R}_{+}\times \mathbb{R}^n \times S;\mathbb{R}_{+})$.
+        Define an operator $\mathcal{L}V$ from $\mathbb{R}^n\times \mathbb{R}_{+}\times S $ to $\mathbb{R}^n$ by
+        \begin{align}
+        \mathcal{L} V(t,\bm x,r)=&V_t{(t,\bm x,r)}+V_{\bm x}{(t,\bm x,r)}\bm f(t,\bm x,r) \notag \\
+                 &+\frac{1}{2}tr\big [\sigma(t,\bm x,r)^TV_{\bm x\bm x}\sigma(t,\bm x,r)\big ]+\sum_{j=1}^M\gamma_{ij}V(t,\bm x,j),
+        \end{align}
+        where $V_t{(t,\bm x,r)}=\frac{\partial V(t,\bm x,r) }{\partial t},V_{\bm x}{(t,\bm x,r)}=(\frac{\partial V(t,\bm x,r) }{\partial x_1},
+        \frac{\partial V(t,\bm x,r) }{\partial x_2},\ldots,\frac{\partial V(t,\bm x,r) }{\partial x_n}),V_{\bm x\bm x}{(t,\bm x,r)}=(\frac{\partial^2(V(t,\bm x,r)) }{\partial x_i \partial x_j})_{n\times n}.$
+         \end{lem}
+
+        为了方便叙述, 记$\bar q=\max\{q_1,q_2,\cdots,q_n\}$, $\underline{q}=\min\{q_1,q_2,\cdots,q_n\}\}$, $\bar\gamma=\max\{\gamma_1,\gamma_2,\cdots,\gamma_n\}$, $\bar\lambda=\max^m_{v=1}\{\lambda_N(L(u))\}$.
+
+\section{事件激发控制策略同步分析}\label{result}
+
+\subsection{集中式事件激发策略下的同步分析}\label{centralized}
+
+        集中式事件激发控制策略指的是根据节点的状态信息构造统一的事件激发函数, 所有节点都遵循该激发函数进行信息的更新. 设置集中式事件激发控制输入$\bm{u}_i(t_k)$如下:
+        \begin{align*}
+            \bm{u}_i(t_k)=-\epsilon\rho(t)d_{i}(\sigma_{t})\Gamma[\bm{x}_{i}(t_{k})-\bm{s}(t_{k})]
+        \end{align*}
+        这里的控制输入与\autoref{nonlinearcontrol}唯一不同在于此处的控制输入是线性的.
+
+        在上述集中式事件激发控制输入下, 网络 \eqref{sys-dt}) 转化为如下:
+        %consider the discontinuous diffusing complex network under centralized event triggered strategy as following, the  centralized event-triggered function will be designed to impel this network to realize exponentially synchronization.
+        \begin{align}\label{sys_cen}
+        \nonumber d\bm{x}_{i}(t)&=\Big[\bm{f}(\bm{x}_{i}(t))-\rho(t)\sum^N_{j=1}l_{ij}(\sigma_{t})\Gamma(\bm{x}_{j}(t_k)-\bm{x}_{i}(t_{k}))
+        +\bm{u}_i(t)\Big]dt-\rho(t)\Sigma_i(t)d\bm{w}_{i}(t),\\
+         &\quad t_{k}\leq t< t_{k+1}, \quad i = 1,\cdots,N,
+        \end{align}
+        其中$\Sigma_i(t)=(l_{i1}(\sigma_t)\varepsilon_{i1}(t),\cdots,l_{iN}(\sigma_t)\varepsilon_{iN}(t))\otimes(\Gamma\bm{1_n})\in\mathds{R}^{n\times N}$, $\bm{w}_{i}(t)=(w_{i1}(t),\cdots,w_{iN}(t))^\top$, $\{t_{1},t_{2},\cdots \}$是严格递增的集中式事件激发时刻序列.
+
+        定义测量误差$\bm\delta_i(t)=\bm{x}_i(t_k)-\bm{x}_i(t)$, 同步误差$\bm e_{i}(t)=\bm{x}_{i}(t)-\bm s(t)$. 因为$\sum^N_{j=1}l_{ij}(\sigma_{t})=0$, 所以网络系统 \eqref{sys_cen} 可以表示成误差系统的形式:
+        \begin{align}
+            \nonumber d{\bm{e}}_{i}(t)=&\Big[\bm{f}(\bm{x}_{i}(t))-\bm{f}(\bm{s}(t))-\rho(t)\sum^N_{j=1}l_{ij}(\sigma_{t})\Gamma(\bm{\delta}_j(t)+\bm{e}_j(t))
+            -\epsilon\rho(t)d_{i}(\sigma_{t})\Gamma(\bm{\delta}_i(t)+\bm{e}_i(t)\\
+                &+\bm{s}(t)-\bm{s}(t_k))\Big]dt-\rho(t)\Sigma_i(t)d\bm{w}_{i}(t), \quad t_{k}\leq t< t_{k+1}, \quad i = 1,\cdots,N.
+        \end{align}
+        利用Kronecker积的性质, 上式可以改成如下:
+        \begin{align}\label{tallerr}
+         \nonumber  d\bm{e}(t)=&\Big[\bm{f}(\bm{e}(t))-\rho(t)[L(\sigma_t)\otimes\Gamma](\bm\delta(t)+\bm{e}(t))
+        -\epsilon\rho(t)[D(\sigma_t)\otimes\Gamma](\bm\delta(t)+\bm{e}(t)+\hat{\bm{s}}(t))\Big]dt\\
+        &-\rho(t)\Sigma(t)d\bm{w}(t),\quad t_{k}\leq t< t_{k+1}, \quad i = 1,\cdots,N.
+        \end{align}
+        其中$\bm{f}(\bm{e}(t))=(\bm{f}^\top(\bm{x}_1(t))-\bm{f}^\top(\bm{s}(t)),\cdots,\bm{f}^\top(\bm{x}_N(t))-\bm{f}^\top(\bm{s}(t)))^\top$, $\bm\delta(t)=(\bm\delta_1^\top(t),\cdots,\bm\delta_N^\top(t))^\top$, $\bm{e}(t)=(\bm{e}_1^\top(t),\cdots,e_N^\top(t))^\top$, $\Sigma(t)=\text{diag}\{\Sigma_1(t),\cdots,\Sigma_N(t)\}$, $\bm{w}(t)=(\bm{w}^\top_1(t),\cdots,\bm{w}^\top_N(t))^\top$, $\hat{\bm{s}}(t)=\bm{1}_N\otimes\tilde{\bm{s}}(t)$, $\tilde{\bm{s}}(t)=\bm{s}(t)-\bm{s}(t_k)$,
+
+        定义集中式事件激发函数$g^c(t)$如下:
+        \begin{align}\label{trig-f}
+            g^c(t)=(1+\epsilon)\|\bm\delta(t)\|^2+\epsilon\|\hat{\bm{s}}(t)\|^2-\frac{\xi^2\underline{q}^2}{4(\bar{\lambda}^2+2\epsilon)c^2\bar{q}^2\bar{\gamma}^2}\|\bm{e}(t)\|^2
+        \end{align}
+        \begin{rem}
+        在$t$时刻, 如果$g^c(t)$达到阈值$0$, 那么事件就被激发, 新的事件激发时刻被确定, 即$t_{k+1}=t$. 此时所有的节点状态和控制输入都要更新至该时刻的信息. 此后$g^c(t)<0$直到下一次事件激发.
+        \end{rem}
+        \begin{thm}\label{thm:cen}
+            如果$\bm{f}(\cdot)$属于$QUAD(G,\Delta,\xi)$, 噪声强度$\varepsilon_{ij}(t)$满足$\int_0^\infty\varepsilon_{ij}^2(s)ds<\infty$, 并且存在正常数$\pi_1,\pi_2,\cdots,\pi_m$, $a_1,a_2,\cdots,a_m$使得对所有$u\in S$, 下式不等式成立:
+            \begin{align}\label{ce-condiction}
+            \left\{
+            \begin{aligned}
+                  &(\bar{\delta}+\chi_u)I_N-c\underline{\gamma}(L(u)+\epsilon D(u))\leq0,\\
+                  &\pi_v-a_u\leq0, \quad \text{if}\quad v\neq u, v\in S^u_2,\\
+                  &\pi_v-a_u\geq0, \quad \text{if} \quad v= u, v\in S^u_2,
+            \end{aligned}
+            \right.
+            \end{align}
+           其中$\bar{\delta}=\max_{k=1}^k\{\delta_k\}$, $\underline{\gamma}=\min_{k=1}^k\{\gamma_k\}$, $\chi_u=\sum_{v\in S_1^u}q_{uv}(\pi_v-a_u)/\pi_u$, 那么在事件激发函数 \eqref{trig-f} 下, 网络系统 \eqref{sys_cen} 可以实现均方指数同步.
+        \end{thm}
+        \begin{proof}
+        定义Lyapunov-Krasovskii函数为
+        \begin{align*}
+        V(t)=\frac{1}{2}\pi_{\sigma_t}\bm{e}^\top(t)[I_N\otimes Q]\bm{e}(t).
+        \end{align*}
+        记$\mathcal{L}$是弱无穷小生成元算子. 当$\sigma(t)=u$时, 根据\autoref{ET}可得
+        \begin{align}\label{dVt}
+        dV(t)&=\mathcal{L}V(t)dt+\rho(t)\pi_u\bm{e}^\top(t)(I_N\otimes Q)\Sigma(t)d\bm{w}(t),
+        \end{align}
+        其中
+        \begin{align}\label{LV}
+        \nonumber\mathcal{L}V(t)&=\pi_u\bm{e}^\top(t)[I_N\otimes Q]\Big\{\tilde{\bm{f}}(\bm{e}(t))-\rho(t)\left[L(u)\otimes\Gamma\right](\bm{e}(t)+\bm\delta(t))\\
+        \nonumber &\quad-\epsilon\rho(t)[D(u)\otimes\Gamma](\bm\delta(t)+\bm{e}(t)+\hat{\bm{s}}(t))\Big\}\\
+        \nonumber &\quad+\frac{1}{2}\pi_u\rho^2(t)\text{tr}[(I_N\otimes Q)\Sigma(t)\Sigma^\top(t)]+\frac{1}{2}\sum_{v=1}^{m}q_{uv}\pi_v\bm{e}^\top(t)[I_N\otimes Q]\bm{e}(t)\\
+        \nonumber&\leq\pi_u\bm{e}^\top(t)[I_N\otimes Q]\tilde{\bm{f}}(\bm{e}(t))-\pi_u\rho(t)\underline{\gamma}\bm{e}^\top(t)[L(u)\otimes Q]\bm{e}(t)-\pi_u\rho(t)\bm{e}^\top(t)[L(u)\otimes Q\Gamma]\bm\delta(t)\\
+        \nonumber&\quad-\pi_u\epsilon\rho(t)\bm{e}^\top(t)[D(u)\otimes Q\Gamma]\bm\delta(t)\\
+        \nonumber &\quad-\pi_u\epsilon\rho(t)\underline{\gamma}\bm{e}^\top(t)[D(u)\otimes Q]\bm{e}(t)-\pi_u\epsilon\rho(t)\bm{e}^\top(t)[D(u)\otimes Q\Gamma]\hat{\bm{s}}(t)\\
+        &\quad+\frac{1}{2}\pi_u\rho^2(t)\text{tr}[(I_N\otimes Q)\Sigma(t)\Sigma^\top(t)]+\frac{1}{2}\sum_{v=1}^{m}q_{uv}\pi_v\bm{e}^\top(t)[I_N\otimes Q]\bm{e}(t).
+        \end{align}
+        因为$\bm{f}(\cdot)$属于$QUAD(G,\Delta,\xi)$, 所以
+        \begin{align}
+        \nonumber \bm{e}^\top(t)[I_N\otimes Q]\tilde{\bm{f}}(\bm{e}(t))&\leq-\xi\bm{e}^\top(t)[I_N\otimes Q]\bm{e}(t)+\bm{e}^\top(t)[I_N\otimes Q\Delta]\bm{e}(t)\\
+        &\leq(\bar{\delta}-\xi)\bm{e}^\top(t)[I_N\otimes Q]\bm{e}(t).
+        \end{align}
+        通过利用\autoref{lem_leq}, 可得
+        \begin{align}
+        \nonumber-\bm{e}^\top(t)[L(u)\otimes Q\Gamma]\bm\delta(t)&\leq\frac{\mu}{2}\bm{e}^\top(t)[L(u)L(u)^\top\otimes Q^2\Gamma^2]\bm{e}(t)+\frac{1}{2\mu}\bm\delta^\top(t)\bm\delta(t)\\
+        &\leq\frac{\mu}{2}\bar{\lambda}^2\bar{q}^2\bar{\gamma}^2 \bm{e}^\top(t)\bm{e}(t)+\frac{1}{2\mu}\bm\delta^\top(t)\bm\delta(t).
+        \end{align}
+        其中$\bar{\lambda}=\lambda_N(L)$, $\bar{q}=\max_k\{q_k\}$, $\bar{\gamma}=\max_{k}\{\gamma_k\}$.
+        \begin{align}
+        \nonumber-\bm{e}^\top(t)[D(u)\otimes Q\Gamma]\bm\delta(t)&\leq\frac{\mu}{2}\bm{e}^\top(t)[D(u)D(u)^\top\otimes Q^2\Gamma^2]\bm{e}(t)+\frac{1}{2\mu}\bm\delta^\top(t)\bm\delta(t)\\
+        &\leq\frac{\mu}{2}\bar{q}^2\bar{\gamma}^2 \bm{e}^\top(t)\bm{e}(t)+\frac{1}{2\mu}\bm\delta^\top(t)\bm\delta(t).
+        \end{align}
+        类似地,
+        \begin{align}
+        \nonumber-\bm{e}^\top(t)[D(u)\otimes Q\Gamma]\hat{\bm{s}}(t)&\leq\frac{\mu}{2}\bm{e}^\top(t)[D(u)D(u)^\top\otimes Q^2\Gamma^2]\bm{e}(t)+\frac{1}{2\mu}\bm\delta^\top(t)\hat{\bm{s}}(t)\\
+        &\leq\frac{\mu}{2}\bar{q}^2\bar{\gamma}^2\bm{e}^\top(t)\bm{e}(t)+\frac{1}{2\mu}\hat{\bm{s}}^\top(t)\hat{\bm{s}}(t).
+        \end{align}
+        由于$\Sigma_i(t)=(l_{i1}(\sigma_t)\varepsilon_{i1}(t),\cdots,l_{iN}(\sigma_t)\varepsilon_{iN}(t))\otimes(\Gamma\bm{1_n})$, 故$\Sigma_i(t)\Sigma_i^\top(t)=\sum_{j=1}^Nl^2_{ij}(\sigma_t)\varepsilon^2_{ij}(t)\Gamma\bm{1}_n\bm{1}_n^\top\Gamma$. 因此, $\text{tr}[\Sigma_i(t)\Sigma_i^\top(t)]=\sum_{j=1}^N\sum_{k=1}^nl^2_{ij}(\sigma_t)\varepsilon^2_{ij}(t)\gamma_k^2$.
+        \begin{align}\label{tr}
+        \nonumber\text{tr}[(I_N\otimes Q)\Sigma(t)\Sigma^\top(t)]&\leq\text{tr}[I_N\otimes Q]\text{tr}[\Sigma(t)\Sigma^\top(t)]\\
+        \nonumber&\leq Nq\sum_{i=1}^N\text{tr}[\Sigma_i(t)\Sigma_i^\top(t)]\\
+        &=Nqh(t),
+        \end{align}
+        其中$q=\sum_{i=1}^nq_{ii}$, $h(t)=\sum_{i=1}^N\sum_{j=1}^N\sum_{k=1}^nl^2_{ij}(\sigma_t)\varepsilon^2_{ij}(t)\gamma_k^2$.
+        根据$\sum_{v=1}^{m}q_{uv}a_u=0$以及条件 \eqref{ce-condiction}可得
+        \begin{align}\label{quv}
+        \nonumber\frac{1}{2}\bm{e}^\top(t)\sum_{v=1}^{m}q_{uv}\pi_v[I_N\otimes Q]\bm{e}(t)&=\frac{1}{2}\bm{e}^\top(t)\Big[\sum_{v=1}^{m}q_{uv}(\pi_v-a_u)(I_N\otimes Q)\Big]\bm{e}(t)\\
+        \nonumber&=\frac{1}{2}\bm{e}^\top(t)\Big[\Big(\sum_{v\in S_1^u}q_{uv}(\pi_v-a_u)+\sum_{v\in S_2^u}q_{uv}(\pi_v-a_u))\Big)(I_N\otimes Q)\Big]\bm{e}(t)\\
+        &\leq \chi_u\pi_u\bm{e}^\top(t)[I_N\otimes Q]\bm{e}(t),
+        \end{align}
+        其中$\chi_u=\sum_{v\in S_1^u}q_{uv}(\pi_v-a_u)/\pi_u$.
+
+        又因为噪声强度$\varepsilon_{ij}(t)$满足$\int_0^\infty\varepsilon_{ij}^2(s)ds<\infty$, 所以$\int_0^\infty h(s)ds<\infty$.
+        根据 $(\ref{LV})-(\ref{tr})$以及$E\rho(t)=c$可得
+        \begin{align}\label{ELVt}
+        \nonumber E\mathcal{L}V(t)\leq&-\pi_u\xi\bm{e}^\top(t)[I_u\otimes Q]\bm{e}(t)+\pi_u\bm{e}^\top(t)[((\bar{\delta}+\chi_u)I_N-c\underline{\gamma}(L(u)+\epsilon D(u)))\otimes Q]\bm{e}(t)\\
+        \nonumber&+\frac{1}{2}(\bar{\lambda}^2+2\epsilon)\pi_uc\bar{q}^2\bar{\gamma}^2\mu\bm{e}^\top(t)\bm{e}(t)
+        +(1+\epsilon)\pi_uc\frac{1}{2\mu}\bm\delta^\top(t)\bm\delta(t)\\
+        &+\pi_u\epsilon c\frac{1}{2\mu}\hat{\bm{s}}^\top(t)\hat{\bm{s}}(t)+\frac{1}{2}\pi_uc^2Nqh(t).
+        \end{align}
+
+        对式 \eqref{dVt} 两边同时去期望, 由于$E\bm{w}(t)=0$, 结合式 \eqref{ELVt} 、式 \eqref{quv} 以及条件 \eqref{ce-condiction} 可得:
+        \begin{align}\label{EdVt}
+        \nonumber \frac{dEV(t)}{dt}\leq&-\pi_u\xi\bm{e}^\top(t)[I_u\otimes Q]\bm{e}(t)+\frac{1}{2}(\bar{\lambda}^2+2\epsilon)\pi_uc\bar{q}^2\bar{\gamma}^2\mu\bm{e}^\top(t)\bm{e}(t)\\
+        \nonumber&+(1+\epsilon)\pi_uc\frac{1}{2\mu}\bm\delta^\top(t)\bm\delta(t)+\pi_u\epsilon c\frac{1}{2\mu}\hat{\bm{s}}^\top(t)\hat{\bm{s}}(t)+\frac{1}{2}\pi_uc^2Nqh(t)\\
+        \nonumber\leq&-\xi EV(t)+\frac{1}{2}\pi_uc^2Nqh(t)+\frac{\pi_u}{2}[-\xi\underline{q}+(\bar{\lambda}^2
+        +2\epsilon)c\bar{q}^2\bar{\gamma}^2\mu]\bm{e}^\top(t)\bm{e}(t)\\
+        &+\frac{\pi_u}{2\mu}c[(1+\epsilon)\bm\delta^\top(t)\bm\delta(t)+\epsilon\hat{\bm{s}}^\top(t)\hat{\bm{s}}(t)].
+        \end{align}
+        由于上式对任意$\mu>0$都成立, 故可取$\mu=\frac{\xi\underline{q}}{2(\bar{\lambda}^2+2\epsilon)c\bar{q}^2\bar{\gamma}^2}$, 此时有
+        \begin{align*}
+        -\xi\underline{q}+(\bar{\lambda}^2+2\epsilon)c\bar{q}^2\bar{\gamma}^2\mu
+        =-\frac{c}{\mu}\frac{\xi^2\underline{q}^2}{4(\bar{\lambda}^2+2\epsilon)c^2\bar{q}^2\bar{\gamma}^2}.
+        \end{align*}
+        在事件激发函数 \eqref{trig-f} 下, 式 \eqref{EdVt} 可以转化为
+        \begin{align*}
+        \frac{dEV(t)}{dt}\leq-\xi EV(t)+\frac{1}{2}\pi_uc^2Nqh(t).
+        \end{align*}
+        根据比较原理可得,
+        \begin{align*}
+        EV(t)\leq V(0)e^{-\xi t}+\frac{1}{2}\pi_uc^2Nq\int_0^th(s)e^{-\xi(t-s)}ds.
+        \end{align*}
+
+        因为$\int_0^\infty h(s)ds<\infty$, 故对任意给定$\eta>0$, 存在$\delta>0$使得$\int_{\delta}^\infty h(s)ds<\eta$. 因此, 对任意$t\geq\delta$, 有
+        \begin{align*}
+        \nonumber\int_0^th(s)e^{-\xi(t-s)}ds&=\int_0^\delta h(s)e^{-\xi(t-s)}ds+\int_\delta^th(s)e^{-\xi(t-s)}ds\\
+        \nonumber&\leq e^{-\xi(t-\delta)}\int_0^\delta h(s)ds+\int_\delta^th(s)ds\\
+        \nonumber&\leq e^{-\xi(t-\delta)}\int_0^\infty h(s)ds+\int_\delta^\infty h(s)ds\\
+        &\leq e^{-\xi(t-\delta)}\int_0^\infty h(s)ds+\eta.
+        \end{align*}
+        因此$\lim_{t\rightarrow\infty}EV(t)=0$, 根据$V(t)$的定义可得$\lim_{t\rightarrow\infty}\|\bm{e}(t)\|^2=0$. 于是, 对任意$i, j=1,2,\cdots,N$, $\lim_{t\rightarrow\infty}\|\bm{x}_i(t)-\bm{x}_j(t)\|^2=0$. 即网络系统 \eqref{sys_cen} 可以实现均方同步.
+        \end{proof}
+
+\subsection{分散式事件激发策略}\label{decentralized}
+        在集中式事件激发策略中, 当激发函数 \eqref{ce-condiction} 达到阈值$0$的时候, 所有的节点此刻同时发生更新, 这将会导致节点间的信息传输频繁. 对于大规模的复杂网络, 信息的频繁传输使得的网络通信不安全, 并且加大通讯负荷. 为了减少信号传输的频率, 分散式的事件激发控制策略是一个很好的选择. 在分散式事件激发策略中, 每一个节点都有特殊的激发函数, 并且该激发函数函数只依赖于自身节点的状态信息. 该策略下受控的网络微分方程如下:
+        \begin{equation}\label{sys_decen}
+        \begin{split} d\bm{x}_{i}(t)=&\Big[\bm{f}(\bm{x}_{i}(t))-\rho(t)\sum^N_{j=1}l_{ij}(\sigma_{t})\Gamma(\bm{x}_{j}(t^j_{k'})-\bm{x}_{i}(t^i_{k}))+\bm{u}_i(t)\Big]dt\\
+         &-\rho(t)\Sigma_i(t)d\bm{w}_{i}(t),\quad t^i_{k}\leq t< t^i_{k+1}, \quad i = 1,\cdots,N,
+        \end{split}
+        \end{equation}
+       其中$\{t^i_{1},t^i_{2},\cdots \}$是严格递增的序列, 它表示节点$i$的事件激发时刻; $k'=\arg\max_k\{t^j_k\leq t\}$; 控制输入$\bm{u}_i(t_k)$定义如下:
+        \begin{align*}
+            \bm{u}_i(t^i_k)=-\epsilon\rho(t)d_{i}(\sigma_{t})\Gamma[\bm{x}_{i}(t^i_{k})-\bm{s}(t^i_{k})].
+        \end{align*}
+
+        为了研究的方便, 将上述系统写成误差系统的形式. 将节点在当前时刻$t$的状态与最新事件激发时刻$t^i_k$的状态之间的距离定义为系统测量误差$\bm\delta_i(t)=\bm{x}_i(t^i_k)-\bm{x}_i(t)$, 将节点与同步目标之间的距离定义为同步误差$e_{i}(t)=\bm{x}_{i}(t)-\bm{s}(t)$. 在本节中, 如果没有特殊说明, 所有的记号与 \ref{centralized} 的定义一样. 类似于 \ref{centralized}, 网络系统 \eqref{sys_decen} 可以改写成误差系统的形式:
+        \begin{align}\label{deeit}
+            \nonumber d{\bm{e}}_{i}(t)=&\Big[\bm{f}(\bm{x}_{i}(t))-\bm{f}(\bm{s}(t))-\rho(t)\sum^N_{j=1}l_{ij}(\sigma_{t})\Gamma(\bm{\delta}_j(t)+\bm{e}_j(t))
+            -\epsilon\rho(t)d_{i}(\sigma_{t})\Gamma(\bm{\delta}_i(t)\\
+                &+\bm{e}_i(t)+\bm{s}(t)-\bm{s}(t_k))\Big]dt-\rho(t)\Sigma_i(t)d\bm{w}_{i}(t), \quad t^i_{k}\leq t< t^i_{k+1}, \quad i = 1,\cdots,N.
+        \end{align}
+        通过利用 Kronecker 积的性质,
+        网络系统 \eqref{deeit} 可以改写为如下:
+        \begin{align*}
+        \nonumber d\bm{e}(t)=&\big[\tilde{\bm{f}}(\bm{e}(t))-\rho(t)[L(\sigma_t)\otimes\Gamma](\bm\delta(t)+\bm{e}(t))
+        -\epsilon\rho(t)[D(\sigma_t)\otimes\Gamma](\bm\delta(t)+\bm{e}(t)+\hat{\bm{s}}(t))\big]dt\\
+        &-\rho(t)\Sigma(t)d\bm{w}(t), \quad t^i_{k}\leq t< t^i_{k+1}, \quad i = 1,\cdots,N,
+        \end{align*}
+        其中$\hat{\bm{s}}(t)=\bm{1}_N\otimes\tilde{\bm{s}}(t)$, $\tilde{\bm{s}}(t)=\bm{s}(t)-\bm{s}(t_k)$.
+
+        不同于集中式激发策略, 关于节点$i$的分散式激发函数$g^i(t)$定义为如下:
+        \begin{align}\label{detrig-f}
+            g^i(t)=(1+\epsilon)\|\bm\delta_i(t)\|^2+\epsilon\|\hat{\bm{s}}_i(t)\|^2-\frac{\xi^2\underline{q}^2}{4(\bar{\lambda}^2+2\epsilon)c^2\bar{q}^2\bar{\gamma}^2}\|\bm{e}_i(t)\|^2,
+        \end{align}
+        这里$\omega=\xi^2\underline{p}^2\underline{q}^2/4\varepsilon c\bar{p}$.
+        \begin{rem}
+            在分散式事件激发策略中, 当分散式激发函数将要达到阈值$0$的时候, 每个节点更新自己的状态信息, 同时发送此时的状态信息给邻居节点. 在任意时刻, 事件激发函数\eqref{detrig-f} 都是负的. 这是因为在事件激发点处, 测量误差等于$0$. 也就是说激发函数在事件激发时刻是右连续的, 激发时刻是激发函数的跳跃间断点.
+        \end{rem}
+        \begin{thm}\label{thm:decen}
+            如果$\bm{f}(\cdot)$满足假设 \ref{assumption}, 噪声强度$\varepsilon_{ij}(t)$满足$\int_0^\infty\varepsilon_{ij}^2(s)ds<\infty$, 并且存在正数$\pi_1,\pi_2,\cdots,\pi_m$使得对所有$u\in S$, 下面不等式成立:
+            \begin{align}\label{de-condiction}
+            \left\{
+            \begin{aligned}
+                  &(\bar{\delta}+\chi_u)I_N-c\underline{\gamma}(L(u)+\epsilon D(u))\leq0,\\
+                  &\pi_v-a_u\leq0, \quad \text{if},\quad v\neq u, v\in S^u_2,\\
+                  &\pi_v-a_u\geq0, \quad \text{if}, \quad v= u, v\in S^u_2,
+            \end{aligned}
+            \right.
+            \end{align}
+        其中$\pi_u=\sum_{v\in S_1^u}q_{uv}(\pi_v-a_u)/\pi_u$, 则在事件激发函数 \eqref{detrig-f} 下, 网络系统 \eqref{sys_decen} 均方同步到$\bm{s}(t)$.
+        \end{thm}
+        \begin{proof}
+        在本定理的证明中, 使用定理 \eqref{thm:cen} 证明给出的 Lyapunov-Krasovskii 函数, 类似于 \eqref{dVt}-\eqref{EdVt}, 有
+        \begin{align}\label{deEdVt}
+        \nonumber \frac{dEV(t)}{dt}\leq&-\xi EV(t)+\frac{1}{2}\pi_uc^2Nqh(t)+\frac{\pi_u}{2}[-\xi\underline{q}+(\bar{\lambda}^2
+        +2\epsilon)c\bar{q}^2\bar{\gamma}^2\mu]\bm{e}^\top(t)\bm{e}(t)\\
+        \nonumber&+\frac{\pi_u}{2\mu}c[(1+\epsilon)\bm\delta^\top(t)\bm\delta(t)+\epsilon\hat{\bm{s}}^\top(t)\hat{\bm{s}}(t)]\\
+        \nonumber=&-\xi EV(t)+\frac{1}{2}\pi_uc^2Nqh(t)+\frac{\pi_u}{2}\sum_{i=1}^N\bigg\{[-\xi\underline{q}+(\bar{\lambda}^2
+        +2\epsilon)c\bar{q}^2\bar{\gamma}^2\mu]\bm{e}_i^\top(t)\bm{e}_i(t)\\
+        &+\frac{c}{\mu}[(1+\epsilon)\bm\delta_i^\top(t)\bm\delta_i(t)+\epsilon\hat{\bm{s}}_i^\top(t)\hat{\bm{s}}_i(t)]\bigg\}.
+        \end{align}
+
+        由于 \eqref{deEdVt} 对任意$\mu>0$都成立, 因此可以选择$\mu=\frac{\xi\underline{q}}{2(\bar{\lambda}^2+2\epsilon)c\bar{q}^2\bar{\gamma}^2}$. 根据分散式激发函数 \eqref{detrig-f}, 在式 \eqref{deEdVt} 中的求和项小于或等于$0$. 因此有
+        \begin{align*}
+            \frac{dEV(t)}{dt}\leq-\xi EV(t)+\frac{1}{2}\pi_uc^2Nqh(t).
+        \end{align*}
+
+        类似于 \eqref{thm:cen} 的讨论, 可以得出, 对任意$i=1,2,\cdots,N$, $\lim_{t\rightarrow\infty}\|\bm{e}_i(t)\|^2=0$成立, 这意味着$\lim_{t\rightarrow\infty}\|\bm{x}_i(t)-\bm{s}(t)\|^2=0$. 于是根据定义 \eqref{defn}, 网络系统 \eqref{sys_decen} 在均方意义下同步到$\bm{s}(t)$.
+        \end{proof}
+
+\section{数值模拟}\label{simulate}
+    为了验证理论结果的有效性, 本节给出一个数值仿真例子. 考虑一个$5$个节点的马尔科夫切换网络模型:
+\begin{equation}
+        \begin{split}\label{exmsystem}
+            \dot{\bm{x}}_{i}(t)=\bm{f}(\bm{x}_{i}(t))-\rho(t)\sum^5_{j=1}l_{ij}(\sigma_t)\Gamma[\bm{x}_{j}(t)-\bm{x}_{i}(t)+(\varepsilon_{ij}(t)\otimes\bm{1_n})\xi_{ij}(t)],\quad i=1,2,\cdots,5,
+        \end{split}
+        \end{equation}
+    其中$\bm{x}_{i}(t)=(x_{i1}(t),x_{i2}(t),x_{i3}(t))^\top\in \mathbb{R}^3$, $\bm{f}(\bm{x})=(z_1(-x_1+x_2-h(x_1)),x_1-x_2+x_3,-z_2(x_2))^\top$,
+    这里$h(x_1)=r_1x_1+1/2(r_2-r_1)(|x_1+1|-|x_1-1|)$. 从节点自身动力学可以看出, 每个节点都是线性耦合的 Chua's 电路\cite{chuacircuits}. 选择参数$z_1=9.78,z_2=14.97,r_1=-0.75,r_2=-1.31$, 那么此时自身节点动力学具有双混沌吸引子. 对任意$i,j=1,2,\cdots,5, t\geq0, \xi_{ij}(t)$是标准白噪声, $\varepsilon_{ij}(t)=\frac{1}{e^t}(i\neq j)$, 以及$\varepsilon_{ii}(t)=0$.
+%\begin{figure}[htbp]
+%  % Requires \usepackage{graphicx}
+%     \begin{center}
+%            %\subfigure[topolpgies1]{\label{fig1:a}\includegraphics[width=1.8in,height=1.8in]{figures/tuopu1.png}}
+%            \subfigure{\label{fig1:a}\includegraphics[width=1.8in,height=1.8in]{figures/tuopu1.png}}
+%            \subfigure{\label{fig1:b}\includegraphics[width=1.8in,height=1.8in]{figures/tuopu2.png}}
+%            \subfigure{\label{fig1:b}\includegraphics[width=1.8in,height=1.8in]{figures/tuopu3.png}}
+%     \end{center}
+%  \caption{Some topologies about networks.}
+%\end{figure}
+           %The discontinuous diffusing complex network under centralized event triggered strategy as follow,
+
+   $\{\sigma_t, t\geq0\}$是定义在有限状态空间$\{1,2,3\}$上的马尔科夫链, 其每个状态的平均逗留时间服从参数为$0.1$的指数分布, 并且转移率是部分未知的, 转移率矩阵如下:
+        $$
+          \left(
+            \begin{array}{ccc}
+              -8 & ? & ? \\
+              5 & -8 & 3 \\
+              ? & ? & -8 \\
+            \end{array}
+          \right).
+          $$
+    其中$"?"$表示未知转移率.
+
+    复杂网络所有可能的拓扑结构如图\ref{tuopu}. $\mathcal{D}_1=\{2,4,5\}, \mathcal{D}_2=\{1,3,5\}$, 和$\mathcal{D}_3=\{1,2,3\}$是相应马尔科夫链状态下的牵制节点集.
+
+\begin{figure}[!htb]
+\begin{minipage}[t]{0.48\linewidth}\centering
+\includegraphics[width=3.2in]{noise/cestate.eps}\caption{在集中式激发策略 \eqref{trig-f} 下, 节点各个状态$x_i^j(t)$随时间演变图.}\label{cefig}
+\end{minipage}~~
+\begin{minipage}[t]{0.48\linewidth}\centering
+\includegraphics[width=3.2in,height=2.45in]{noise/ceEt.eps}\caption{在集中式激发策略 \eqref{trig-f} 下, 系统总误差$E(t)$随时间演变图.}\label{ceEt}
+\end{minipage}
+\end{figure}
+
+    选取参数$\Gamma=I_3$, $\Delta=11.7I_3$. 为了估计 QUAD 条件中的参数$\xi$, 这里先求$\bm f$的 Jacobin 矩阵如下:
+        \begin{align*}
+        J_1=\left(
+              \begin{array}{ccc}
+                3.0318 & 9.78 & 0 \\
+                1 & -1 & 1 \\
+                0 & -14.97 & 0 \\
+              \end{array}
+            \right),
+        J_2=\left(
+              \begin{array}{ccc}
+                -2.445 & 9.78 & 0 \\
+                1 & -1 & 1 \\
+                0 & -14.97 & 0 \\
+              \end{array}
+            \right).
+        \end{align*}
+        通过计算可知, $\bm f$所有的 Jacobin 矩阵的最大特征值为$9.1207$. 于是可得$\xi=\epsilon-9.1207$. 因为$\xi$是正数, 故可取$\epsilon=11.7$, 此时$\xi=11.7-9.1207=2.5793$.
+
+    为了保证定理 \ref{thm:cen} 和定理 \ref{thm:decen} 的条件满足, 这里选取$c=25, \epsilon=15, \pi_1=\pi_2=\pi_3=8$, 以及$a_1=a_2=a_3=8.5$.节点的初值状态$\bm{x}_1(0)=(3,1,-1)^\top$, $\bm{x}_2(0)=(1,2,-5)^\top$, $\bm{x}_3(0)=(-5,-4,-1)^\top$, $\bm{x}_4(0)=(-1,6, 2)^\top$, $\bm{x}_5(0)=(8,-3,1)^\top$, 以及$\bm{s}(0)=(1,-1,2)^\top$.
+    定义系统同步误差为
+        $$E(t)=\sqrt{\sum_{i=1}^5\sum_{j=1}^3(x_i^j(t)-s^j(t))^2}.$$
+
+    网络系统的微分方程求解方法利用的是欧拉迭代法, 步长为$0.001$, 迭代时间为$[0, 5]$, 数值解的结果已图片的形式给出, 见图 \ref{cefig}--图 \ref{tritimes}.
+
+    从图 \ref{cefig} 和图 \ref{ceEt} 可以看出, 基于集中式事件激发策略 \eqref{trig-f} 下, 复杂网络系统 \eqref{sys_cen} 的每一个节点每一维度的状态向量随着时间的演变慢慢地趋于同步, 并且系统同步误差从$10$迅速递减到$0$. 同样的, 在分散式事件激发策略下, 图\ref{defig}和图\ref{deEt}展示了复杂网络系统 \eqref{sys_decen} 各个节点的状态随着时间的演变趋于一致, 并且系统系统误差以较大的速度收敛于$0$. 为了更好的展现事件激发的的过程, 图 \ref{gt} 和图 \label{degt} 给分别出了在集中式事件激发策略和分散式事件激发策略下的激发函数的变量情况. 从图中可以看到, 集中式和分散式的激发函数值都是负数. 当激发函数是左极限等于零的时候, 此时事件被激发, 测量误差就等于零, 从而使得激发函数的值就等于同步误差的相反数, 此后, 测量误差有开始慢慢的增大至同步误差时, 事件就再一次被激发. 因此事件激发函数是具有周期缩短且函波峰逐渐平缓趋于零的性质. 集中式事件激发策略和分散式事件激发策略的不同点在于, 集中式激发策略只有一个激发函数, 其激发函数是根据系统所有节点的策略误差和同步误差的距离定义的, 而分散式事件策略要求每一个节点都有自己的激发函数, 其激发函数是根据节点自身的策略误差和同步误差的距离定义的. 图 \ref{tritimes} 给出了两种事件激发的激发次数, 从图中可以看出, 除了节点$3$外, 集中式的激发次数要高于分散式的激发次数. 从系统的平均激发次数来看, 集中式策略的激发次数也是高于分散式策略的激发次数. 这说明了分散式激发策略具有更低的更新频率和信息传输频率, 从而更节省能量, 但是分散式策略需要计算每个节点的激发函数, 因此也会导致较大的计算负荷.
+
+\begin{figure}[!htb]
+\begin{minipage}[t]{0.48\linewidth}\centering
+\includegraphics[width=3.2in]{noise/destate.eps}\caption{在分散式激发策略 \eqref{trig-f} 下, 节点各个状态$x_i^j(t)$随时间演变图.}\label{defig}
+\end{minipage}~~
+\begin{minipage}[t]{0.48\linewidth}\centering
+\includegraphics[width=3.2in,height=2.45in]{noise/deEt.eps}\caption{在分散式激发策略 \eqref{trig-f} 下, 系统总误差$E(t)$随时间演变图.}\ref{deEt}
+\end{minipage}
+\end{figure}
+
+\begin{figure}[!htb]
+\begin{minipage}[t]{0.48\linewidth}\centering
+\includegraphics[width=3.2in]{noise/gct.eps}\caption{在分散式激发策略 \eqref{trig-f} 下, 系统总测量误差图.}\label{gt}
+\end{minipage}~~
+\begin{minipage}[t]{0.48\linewidth}\centering
+\includegraphics[width=3.2in,height=2.45in]{noise/git.eps}\caption{在分散式激发策略 \eqref{trig-f} 下, 各个节点的策略误差图.}\label{degt}
+\end{minipage}
+\end{figure}
+
+\begin{figure}[!htb]
+\begin{minipage}[t]{0.48\linewidth}\centering
+\includegraphics[width=3.2in]{noise/trigger.eps}\caption{在集中式激发策略 \eqref{trig-f} 和分散式激发策略 \eqref{detrig-f}下, 节点激发次数对比图.}\label{tritimes}
+\end{minipage}~~
+\end{figure}
+
+\section{小结}
+    本节主要讨论了带有部分未知转移率、随机噪声扰动、以及随机耦合强度的马氏切换复杂网络同步问题. 分别设置集中式和分散式的事件激发控制策略, 并在两种激发策略下分别给出了同步判据. 
+%    This paper researches the synchronous problem of Markovian switching complex networks with partly unknown transition rates, stochastic noise, and random coupling strength. By introducing new event-triggered functions, constructing a suitable stochastic Lyapunov-Krasovskii function, the sufficient synchronization criteria are derived respectively under both centralized and decentralized event-triggered control propotol. Simulation has shown that, by using the event-triggered strategy, the networks can achieve synchronization in relatively short time, and the decentralized event-triggered strategy have lower updating and transmission frequently compared with centralized event-triggered strategy.

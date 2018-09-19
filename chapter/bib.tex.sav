@@ -1,0 +1,302 @@
+%%!Mode:: "Tex:UTF-8"
+\bibliographystyle{unstr}
+\begin{thebibliography}{99}\addtolength{\itemsep}{-2.5ex}\setlength{\itemsep}{0cm}\zihao{5}
+\bibitem{2}{S. Strogatz. Exploring complex networks[J]. Nature, 2001, 410(6825):268-276.}
+\bibitem{0}{A. Barabasi, R. Albert. Emergence of scaling in random networks[J]. Science, 1999, 286(5439):509-512.}
+\bibitem{4}{周涛, 柏文洁, 汪秉宏, 刘之景, 严钢. 复杂网络研究概述[J]. 物理, 2005, 34:31-36.}
+\bibitem{5}{赵明, 周涛, 陈关荣, 汪秉宏. 复杂网络上动力系统同步的研究进展---如何提高网络的同步能力[J]. 物理学进展, 2008, 28(1):22-34.}
+%/----------------------------application----------------------------------------------------------/
+\bibitem{6}{方锦清. 驾驭强流束晕与探索网络科学[M]. 原子能出版社, 2008:1-22, 215-265.}
+\bibitem{7}{汪小帆, 李翔, 陈关荣. 复杂网络理论及其应用[M]. 北京: 清华大学出版社, 2006:1-16, 194-243.}
+\bibitem{8}{V. Belykh, I. Belykh, M. Erik. Cluster synchronization modes in an ensemble of coupled chaotic oscillators[J].
+    Physical Review E Statistical Nonlinear \& Soft Matter Physics, 2001, 63(3):339-347.}
+\bibitem{9}{F. Wang, G. Chen. Synchronization in scale-free dynamical networks: robustness and fragility[J]. IEEE Transactions on Circuits \& Systems I Fundamental Theory \& Applications, 2002, 49(1): 54-62.}
+\bibitem{10}{ L. Pecora, T. Carroll. Synchronization in chaotic systems[J]. Physical Review Letters, 1990, 64(8):821-824.}
+\bibitem{15}{ M. Vieira. Chaos and synchronized chaos in an earthquake model[J]. Physical Review Letters., 1999, 82:201-204.}
+\bibitem{16}{S. Wang, J. Kuang, J. Li, Y.~Luo, H. Lu, G. Hu. Chaos-based secure communications in a large community[J]. Physical Review E Statistical Nonlinear \& Soft Matter Physics, 2002, 66(2).}
+\bibitem{17}{L. Kunbert, K. Agladze, V. Krinsky. Image processing using light-sensitive chemical waves[J]. Nature, 1989, 337:244-247.}
+%/-----------------------------------network---------------------------------------------------/
+%\bibitem{11}{王小帆, 苏厚胜. 复杂动态网络控制研究进展[J]. 力学进展, 2008, 38(6):751-765.}
+%\bibitem{12}{吕金虎. 复杂网络的同步：理论、方法、应用与展望[J]. 力学进展, 2008, 38(6):713-722.}
+%\bibitem{13}{X. Li, X. Wang, G. Chen. Pingning a complex dynamical network to its equilibrium[J]. IEEE Transactions on Circuits and Systems-I. 2004, 51(10):2074-2087.}
+%\bibitem{14}{S. Strogatz, I. Stewart. Coupled oscillators and biological synchronization[J]. Scientific American, 1993, 269(6):102-109.}
+%\bibitem{genesyn}{A. Arenas, A. D{\'{i}}az-Guilera, J. Kurths, Y. Moreno, C. Zhou. Synchronization in complex networks[J]. Chaos, 2008, 18(3):2183-2185.}
+\bibitem{finitetimesyn}{W. Cui, S. Sun, J. Fang, Y. Xu, L. Zhao. Finite-time synchronization of Markovian jump complex networks with partially unknown transition rates[J]. Journal of the Franklin Institute, 2014, 351:2543–2561.}
+\bibitem{fixsyn}{Y. Zhou, C. Sun. Fixed time synchronization of complex dynamical networks[C]. 中国智能自动化学术会议, 2015, 105:649–655.}
+\bibitem{abssyn}{M. Zhan, X. Wang, X. Gong, G. Wei, C. Lai. Complete synchronization and generalized synchronization of one-way coupled time-delay systems[J]. Physical Review E Statistical Nonlinear \& Soft Matter Physics, 2003, 68.}
+\bibitem{clusyn}{H. Dong, D. Ye, J. Feng, J. wang. Almost sure cluster synchronization of {M}arkovian switching complex networks with stochastic noise via decentralized adaptive pinning control[J]. Nonlinear Dynamics, 2016:1-13.}
+\bibitem{phasyn}{C. Li, G. Chen. Phase synchronization in small-world networks of chaotic oscillators[J]. Physica A, 2004, 341:73-79.}
+\bibitem{23}{X. Feng, F. Zhang, W. Wang. Global exponential synchronization of delayed fuzzy cellular neural networks with impulsive effects[J]. Chaos, 2011, 44(1-3):9-16.}
+
+%\bibitem{24}{C. Hu, J. Yu, H. J. Jiang, Z. D. Teng. Exponential lag synchronization for neural networks with mixed delays via periodically
+%intermittent control[J]. Chaos, 2010, 20, 023108: 1-8.}
+%\bibitem{p25}{Q. Xie and G. Chen. Synchronization on complex networks of networks. IEEE Trans. Neural. Netw. Learn, 2014, 25: 2110–2118.}
+%\bibitem{p26}{Q. Xie and G. Chen. Synchronization in complex networks under structural evolu-tion. Franklin Inst, 2014, 351: 358–372.}
+%\bibitem{p27}{Z. Zhang and G. Hu. Global synchronization of complex networks with interval time-varying delays and stochastic disturbances. International Journal of Computer Mathematics, 2011, 88:249–264.}
+%\bibitem{p28}{M. Rosenblum, A. Pikovsky and J. Kurths. Phase synchronization of chaotic os-cillators. Phys. Rev. Lett, 1996, 76:1804–1807.}
+%\bibitem{p29}{Y. Wang and J. Cao. Cluster synchronization in nonlinearly coupled delayed networks of non-identical dynamic systems. Nonlinear Analysis: Real World Applica-tion, 2013, 14:842–851.}
+
+\bibitem{Karimi5}
+H. Karimi, P. Maass. Delay-range-dependent exponential {$H_\infty$} synchronization of a class of delayed neural networks[J].
+Chaos Solitons \& Fractals, 2009, 41(3):1125-1135.
+
+\bibitem{Multi6}
+Y. Tang, Z. Wang, W. Wong, J. Kurths, J. Fang.
+ Multiobjective synchronization of coupled systems[J].
+Chaos, 2011, 21(2):939-952.
+
+\bibitem{Lu7}
+J.~Lu, D.~Ho, J.~Cao, J.~Kurths.
+ Exponential synchronization of linearly coupled neural networks with impulsive disturbances[J].
+IEEE Transactions on Neural Networks, 2011, 22(2):329-336.
+
+\bibitem{Liu8}
+Y.~Liu, Z.~Wang, J.~Liang, X.~Liu.
+ Synchronization and state estimation for discrete-time complex networks with distributed delays[J].
+IEEE Transactions on Systems Man \& Cybernetics Part B
+  Cybernetics, 2008, 38(5):1314-1325.
+
+\bibitem{Karimi10}
+H.~Karimi, M.~Zapateiro, N.~Luo.
+ Adaptive synchronization of master-slave systems with mixed neutral and discrete time-delays and nonlinear perturbations[J].
+ Asian Journal of Control, 2012, 14(1):251-257.
+
+\bibitem{Lu9}
+J.~Lu, D.~Ho, Z.~Wang.
+Pinning stabilization of linearly coupled stochastic neural networks via minimum number of controllers[J].
+IEEE Transactions on Neural Networks, 2009, 20(10):1617-1629.
+
+\bibitem{Turci11}
+L.~Turci, P.~Lellis, E.~Macau, M.~Bernardo, M.~Sim{\"{o}}es.
+ Adaptive pinning control: A review of the fully decentralized strategy and its extensions[J].
+European Physical Journal Special Topics, 2014, 223(13):2649-2664.
+
+\bibitem{Jin12}
+J.~Zhou, J.~Lu, J.~L{\"{u}}.
+ Pinning adaptive synchronization of a general complex dynamical network[J].
+Automatica, 2008, 45(4):996-1003.
+
+\bibitem{Turci13}
+L.~Turci, E.~Macau.
+ Adaptive node-to-node pinning synchronization control of complex networks[J].
+Chaos, 2012, 22(3):361-383.
+
+\bibitem{Li15}
+Z.~Li, H.~Park, Z.~Wu.
+ Synchronization of complex networks with nonhomogeneous {M}arkov jump topology[J].
+Nonlinear Dynamics, 2013, 74(1-2):65-75.
+
+\bibitem{p10Markovian}
+Y.~Ma, Y.~Zheng.
+ Synchronization of continuous-time {M}arkovian jumping singular complex networks with mixed mode-dependent time delays[J].
+Neurocomputing, 2015, 156:52-59.
+
+\bibitem{p11Markovian}
+Y.~Han, W.~Lu, Z.~Li, T.~Chen.
+ Pinning dynamic systems of networks with {M}arkovian switching couplings and controller node set[J].
+Systems \& Control Letters, 2014, 65(1):56-63.
+
+\bibitem{mm19}
+ Y. Ma, Y. Zheng. Synchronization of continuous time Markovian jumping singular complex networks with mixed mode-dependent time delays[J].
+ Neurocomputing, 2015, 156:52-59.
+\bibitem{M20} Z. Li, J Park, Z Wu. Synchronization of complex networks with nonhomogeneous Markov jump topology[J]. Nonlinear Dynamics, 2013, 74:65-75.
+\bibitem{M21} X. Liu. {$H_\infty$} cluster synchronization for a class of neutral complex dynamical networks with Markovian switching[J]. The Scientic World Journal, 2014, 2014:1-20.
+\bibitem{M22} X. Yang, J. Cao. Adaptive pinning synchronization of complex networks with stochastic perturbations[J]. Discrete Dynamics in Nature and Society, 2010, 179-186.
+\bibitem{M23} X. Zhou, K. Luo. Cluster synchronization of stochastic complex networks with Markovian switching and time-varying delay via impulsive pinning control[J]. Discrete Dynamicsin Nature and Society, 2014, 1-9.
+\bibitem{M24} J. Wang, M. Kwong, F. Austin. Mean-square exponential synchronization of Markovian switching stochastic complex networks with time-varying delays by pinning control[J]. Abstract and Applied Analysis, 2012, 919-929.
+\bibitem{M25} X. Wang, J. Fang, A. Dai, W. Cui, G. He. Mean square exponential synchronization for a class of Markovian switching complex networks under feedback control and M-matrix approach[J]. Neurocomputing, 2014, 144:357-366.
+
+
+\bibitem{M17} S. Hao , J. Park, W. Guang, Z. Qiang. Finite-time synchronization for complex networks with semi-Markov jump topology[J]. Communications in Nonlinear Science and Numerical Simulation, 2015, 24:40–51.
+
+\bibitem{X18}
+X.~Yang, J.~Cao, J.~Lu.
+ Synchronization of randomly coupled neural networks with {M}arkovian jumping and time-delay[J].
+ IEEE Transactions on Circuits \& Systems I Regular Papers, 2013, 60(2):363-376.
+\bibitem{M19}
+M.~Baumeister, J.~Bühren, T.~Kohnen.
+ Adaptive synchronization in an array of chaotic neural networks with mixed delays and jumping stochastically hybrid coupling[J].
+ Communications in Nonlinear Science \& Numerical Simulation, 2009,
+  14(9-10):3615-3628.
+
+\bibitem{randomcoupling1}
+X.~Yang, J.~Cao, J.~Lu.
+ Synchronization of {M}arkovian coupled neural networks with nonidentical node-delays and random coupling strengths[J].
+ IEEE Transactions on Neural Networks and Learning Systems, 2012, 23(1):60-71.
+
+\bibitem{Eventmultiagentnoises}
+A.~Hu, J.~Cao, M.~Hua, L.~Guo.
+ Event-triggered consensus of multi-agent systems with noises[J].
+Franklin Institute, 2015, 352:3489-3503.
+
+\bibitem{p29}{X. Yang, J. Cao, J. Lu. Synchronization of delayed complex dynamical networks with impulsive and stochastic effects[J]. Nonlinear Analysis Real World Applications, 2011, 12(4):2252–2266.}
+
+\bibitem{p30}{W. Yu, J. Cao. Synchronization control of stochastic delayed neural networks[J]. Physica A Statistical Mechanics \& Its Applications, 2007, 373(1):252–260.}
+
+\bibitem{p31}{X. Yang, J. Cao, Y. Long, W. Rui. Adaptive lag synchronization for competi-tive neural networks with mixed delays and uncertain hybrid perturbations[J]. IEEE Transactions on Neural Networks, 2010, 21(10):1656–1667.}
+
+\bibitem{p32}{A. Hu, J. Cao, M. Hu, L. Guo. Cluster synchronization in directed networks of non-identical systems with noise via random pinning control[J]. Physica A, 2014, 395:537-548.}
+
+\bibitem{natsyn}{X. Wang. Complex networks: topology dynamics and synchronization[J]. International Journal of Bifurcation \& Chaos, 2002, 12(5):885-916.}
+
+\bibitem{pin1}
+{ W. Xia, J. Cao. Pinning synchronization of delayed dynamical networks via periodically intermittent control[J]. Chaos. 2009, 19(1):377-411}
+\bibitem{pin2}{T. Chen, X. Liu, W. Lu. Pinning complex networks by a single controller[J]. IEEE Transactions on Circuits and Systems-1: Regular Papers, 2007, 54(6):1317–1326.}
+\bibitem{pin3}
+{W. Yu, G. Chen, J. Lü. On pinning synchronization of complex dynamical networks[J]. Automatica. 2009, 45(2): 429-435.}
+\bibitem{period}S.~Li, J.~Cao, Y.~He. Pinning controllability scheme of directed complex delayed dynamical networks via periodically intermittent control. Discrete Dynamics in Nature \& Society, 2016, 2016:1-10.
+
+%\bibitem{eventmult1} A. Hu, J. Cao, M. Hua, L. Guo. Event-triggered consensus of multi-agent systems with noises[J]. Journal of the Franklin Institute, 2015, 352:3489–3503.
+\bibitem{eventmult2} D. Dimarogonas, E. Frazzoli, K. Johansson. Distributed-event-triggered control for multi-agent systems[J]. IEEE Transactions on Automatic Control, 2012, 57(5):1291–1297.
+\bibitem{eventmult3} H. Yan, Y. Shen, H. Zhang, H. Shi. Decentralized event-triggered consensus control for second-order multi agent systems[J]. Neurocomputing, 2014, 133:18–24.
+\bibitem{eventmult4} Y. Fan, J. Yang. Average consensus of multi-agent systems with self-triggered controllers[J]. Neurocomputing, 2016, 177:33–39.
+\bibitem{eventmult5} T. Xie, X. Liao, H. Li. Leader-following consensus in second-order multi-agent systems with input time delay: An event-triggered sampling approach[J]. Neurocomputing, 2016, 177:130–135.
+\bibitem{eventmult6} H. Li, C. Ming, S. Shen, W. Wong. Event-triggered control for multi-agent systems with randomly occurring nonlinear dynamics and time-varying delay[J]. Journal of the Franklin Institute, 2014, 351:2582–2599.
+\bibitem{eventmult7} D. Xie, S. Xu, Y. Chu, Y. Zou. Event-triggered average consensus for multi-agent systems with nonlinear dynamics and switching topology[J]. Journal of the Franklin Institute, 2015, 352:1080–1098.
+\bibitem{eventmult8} H. Ma, D. Liu, D. Wang, F. Tan, C. Li. Centralized and decentralized event-triggered control for group consensus with fixed topology in continuous time[J]. Neurocomputing, 2016, 161:267–276.
+\bibitem{eventmult9} G. Seyboth, D. Dimarogonas, K. Johansson. Event-based broadcasting for multi-agent average consensus[J]. Automatica, 2013, 49(1):245-252.
+
+\bibitem{eventsyn1} H. Li, X. Liao, G. Chen, D. Hill, Z. Dong, T. Huang. Event-triggered asynchronous intermittent communication strategy for synchronization in complex dynamical networks[J]. Neural Networks, 2015, 66:1–10.
+\bibitem{eventsyn2} W. Lu, Y. Han, T. Chen. Synchronization in networks of linearly coupled dynamical systems via event-triggered diffusions[J]. IEEE Transactions on Neural Networks and Learning Systems, 2015, 26(12):3060-3069.
+\bibitem{eventsyn3} Z. Chen, D. Li, Y. Huang, C. Tang. Event-triggered communication for time synchronization in WSNs[J]. Neurocomputing, 2016, 177:416–426.
+\bibitem{eventsyn4} B. Zhou, X. Liao, T. Huang, G. Chen. Pinning exponential synchronization of complex networks via event triggered communication with combinational measurements[J]. Neurocomputing, 2015, 157:199–207.
+\bibitem{eventsyn5} J. Lang, Y. Zhang, B. Zhang. Event-triggered network-based synchronization of delayed neural networks[J]. Neurocomputing, 2013, 60(3):676-689.
+\bibitem{eventsyn6} J. Zhang, C. Peng, D. Du, M. Zheng. Adaptive event-triggered communication scheme for networked control systems with randomly occurring nonlinearities and uncertainties[J]. Neurocomputing, 2016, 174:475–482.
+\bibitem{eventsyn7} W. Lu, Y. Han, T. Chen. Pinning networks of coupled dynamical systems with Markovian switching couplings and event-triggered diffusions[J]. Journal of the Franklin Institute, 2015, 352(9):3526-3545.
+
+\bibitem{eventsyn8} K. {\AA}ström, B. Bernhardsson. Comparison of Riemann and Lebesgue sampling for first order stochastic systems[C]. In IEEE Conference on Decision \& Control, 2003, 2011–2016.
+\bibitem{eventsyn9} B. Wang, X. Meng, T. Chen. Event based pulse-modulated control of linear stochastic systems[J]. IEEE Transactions on Automatic Contro, 2014 l, 59(59):2144–2150.
+
+%\bibitem{ChenT_event_triggered}{W.~Lu, Y.~Han, T.~Chen. Pinning networks of coupled dynamical systems with Markovian switching couplings and event-triggered diffusions[J]. Journal of the Franklin Institute, 2015, 352(9): 3526--3545.}
+
+\bibitem{packetloss} M. Guinaldo, D. Lehmann, J. S¢nchez, S. Dormido, K. Johansson. Distributed event-triggered control with network delays and packet-losses[C]. Fifty-one the IEEE Conference on Decision and Control, 1–6, Maui.
+\bibitem{stoprocc}{林元烈. 应用随机过程[M], 清华大学出版社, 2002.}
+\bibitem{yitengprocc}{Steven E. Shreve 著, 陈启宏, 陈迪华 译. 金融随机分析(第二卷)[M], 上海财经大学出版社, 2015.}
+\bibitem{Kronecker}{R.~Horn, C.~Johnson. Matrix Analysis[M]. University of Alberta, 1985.}
+\bibitem{leq} S. Boyd, L. Ghaoui, E. Feron, V. Balakrishnan. Linear Matrix Inequalities in System and Control Theory[J]. Proc.ieee Int.conf.robotics Automation, 1994, 85(5):798-799
+
+
+\bibitem{pwang30}{X. Wang, H. Su. Pinning control of complex networked systems: A decade after and beyond[J]. Annual Reviews in Control, 2014, 38:103-111.}
+\bibitem{ptang31}{Y. Tang, F. Qian, H. Gao, J.Kurths. Synchronization in complex networks and its application – A survey of recent advances and challenges[J]. Annual Reviews in Control, 2014, 38(2):184-198.}
+\bibitem{22}{W. Guo. Lag synchronization of complex networks via pinning control[J]. Nonlinear Analysis Real World Applications, 2011, 12(5): 2579-2585.}
+\bibitem{nonl-asym}{X.~Liu, T.~Chen. Synchronization analysis for nonlinearly-coupled complex networks with an asymmetrical coupling matrix[J].
+Physica A Statistical Mechanics $\&$ Its Applications, 2008, 387:4429--4439.}
+
+\bibitem{Gronwall}
+T.~Gronwall.
+ Note on the derivatives with respect to a parameter of the solutions of a system of differential equations[J].
+ Annals of Mathematics, 1991, 34(5):655-666.
+
+\bibitem{Bellman}
+R.~Bellman.
+ The stability of solutions linear of differential equations[J].
+ Duke Mathematical Journal, 1943, 10(4):643--647.
+
+\bibitem{differential} X. Mao. Stability of stochastic differential equations with Markovian switching[J]. Stochastic Processes and Their
+Applications, 1999, 79:45–67.
+
+\bibitem{chuacircuits} M. Porfiri, F. Fiorilli. Experients on node-to-node pinning control of chua’s circuits[J]. Physica D Nonlinear Phenomena, 2010, 239:454–464.
+%\bibitem{Cluster}{X.~Liu, P.~Li, T.~Chen. Cluster synchronization for delayed complex networks via periodically intermittent pinning control[J]. Neurocomputing, 2015, 162: 191--200.}
+\bibitem{delay-inq}
+A. Ivanov, E. Liz, S. Trofimchuk. Halanay inequality, Yorke 3/2 stability criterion, and differential equations with maxima[J]. Tohoku Mathematical Journal, 2002, 54(2):277-295.
+
+\bibitem{eventnonlinear}
+H. Zhang, J. Cheng, H. Wang, Y. Chen, H. Xiang.
+Robust finite-time event-triggered {$H_\infty$} boundedness for network-based Markovian jump nonlinear systems[J]. ISA Transactions, 2016, 63:32–38.
+
+\bibitem{eventMarkov4}
+Y. Tan, D. Du, Q. Qi.
+State estimation for Markovian jump systems with an event-triggered communication scheme[J]. Circuits Syst Signal Process, 2017, 36:2–24.
+
+\bibitem{eventdelay3}
+Q. Li, B. Shen, Y. Liu, F. Alsaadi.
+Event-triggered {$H_\infty$} state estimation for discrete-time stochastic genetic regulatory networks with Markovian jum ping parameters and time-varying delays[J]. Neurocomputing, 2016, 174:912–920.
+
+\bibitem{eventMarkov3}
+X. Liu, G.i Xiao, W.. Tay, G. Ma, H. Xi.
+Synchronization of pinning networks with Markovian switching topologies and event-triggered communication[C]. 12th World Congress on Intelligent Control and Automation(WCICA), 2016, Guilin, China.
+
+\bibitem{eventMarkov0}
+y. Shao, A. Hu, D. Liu.
+Synchronization of Markovian jumping complex networks with event-triggered control[J]. Chin. Phys. B 2015, 24(9).
+
+\bibitem{eventMarkov2}
+A. Wang, T. Dong, X. Liao.
+Event-triggered synchronization strategy for complex dynamical networks with the Markovian switching topologies[J]. Neural Networks, 2016, 74:52–57.
+
+\bibitem{eventsample}
+A. Hu, J. Cao, M. Hu, L. Guo.
+Event-triggered consensus of Markovian jumping multi-agent systems via stochastic sampling[J]. IET Control Theory $\&$ Applications, 2015, 9(13):1964-1972.
+
+\bibitem{eventdelay2}
+R. Rakkiyappan, R. Sivasamy, S. Lakshmanan.
+Exponential synchronization of chaotic Lur’e systems with time-varying delay via sampled-data control[J]. Chin. Phys. B, 2014, 23(6).
+
+\bibitem{eventunknown}
+H. Li, Z. Zuo, Y. Wang.
+Event triggered control for Markovian jump systems with partially unknown transition probabilities and actuator saturation[J]
+Journal oftheFranklinInstitute, 2016, 353:1848–1861.
+
+\bibitem{eventdelay1}
+S. Senan, M. Ali, R. Vadivel b, S. Arik.
+Decentralized event-triggered synchronization of uncertain Markovian jumping neutral-type neural networks with mixed delays[J]. Neural Networks, 2017, 86:32–41.
+
+
+
+\bibitem{eventMarkov1}
+H. Wang, P. Shi, R. Agarwal.
+Network-based event-triggered filtering for Markovian jump systems[J]. International Journal of Control, 2016, 89(6):1096-1110.
+
+
+
+
+
+
+%\bibitem{20}{J. Zhou, T. P. Chen, L. Xiang. Chaotic lag synchronization of coupled delayed neural networks and its applications in
+%secure com-munication[J]. Circuits Syst Signal Process, 2005, 24, 5: 599-613.}
+%\bibitem{21}{Q. Miao, Y. Tang, S. Lu, J. Fang. Lag synchronization of a class of chaotic systems with unknown parameters[J]. Nonlinear
+%Dynam, 2009, 57:1-2, 107-112.}
+%
+%
+%\bibitem{25}{C. Vreeswijk. Partial synchronization in populations of pulse-coupled oscillators[J]. Phys. Rev. E, 1996, 54: 5522-5537.}
+%\bibitem{26}{B. Ao, Z. G. Zheng, Partial Synchronization on Complex Networks[J]. Europhys. Lett., 2009, 74(2), 50006.}
+%%/-----------------synchronization review------------------------------/
+%
+%\bibitem{29}{ W. Xia, J. Cao. Pinning synchronization of delayed dynamical networks via periodically intermittent control[J]. Chaos. 2009, 19(1):377-411.}
+%\bibitem{30}{W. Yu, G. Chen, J. Lü. On pinning synchronization of complex dynamical networks[J]. Automatica. 2009, 45(2): 429-435.}
+%\bibitem{31}{T. Chen, X. Liu, W. Lu. Pinning complex networks by a single controller[J]. IEEE Trans. Cir. Syst. 2007, I54: 1317-1326.}
+%\bibitem{32}{X. Li, X. Wang, G. Chen. Pinning a complex dynamical networks to its equilibrium[J]. IEEE Trans. Cir. Syst. 2004, I51: 2074-2087.}
+%
+%\bibitem{33}{张刚, 张伟. 复杂网络的脉冲同步[J]. 动力学与控制学报,2009, 7(1), 1-4.}
+%\bibitem{34}{C. G. Li, G. R. Chen. Synchronization in general complex dynamical networks with coupling delays[J]. Physica A, 2004, 343: 263-278.}
+%\bibitem{35}{P. Li, J. D. Cao, Z. D. Wang. Robust impulsive synchronization of coupled delayed neural networks with uncertainties[J]. Phys A. 2007, 373, 261-272.}
+%\bibitem{36}{周进, 陈天平, 高艳辉. 脉冲控制下复杂网络的同步动力学行为[A]. 第二届全国复杂动态网络学术论坛论文集[C], 2005.}
+%
+%
+%\bibitem{37}{E. Montbri, J. Kurths, B. Blasius. Synchronization of two interacting populations of oscillators[J]. Phys RevE. 2004, 70, 056125.}
+%\bibitem{38}{C. P. Li, W. G.~Sun, J.~Kurths. Synchronization between two coupled complex networks[J]. Phys. Rev. E, 2007, 76, 046204.}
+%\bibitem{39}{W. Sun, R. Wang, W. Wang, J. Cao. Analyzing inner and outer synchronization between two coupled discrete-time networks with time delays[J]. Cogn. Neurodyn. 2010, 4(3): 225-231.}
+%\bibitem{40}{W. Sun, Z. Z. Yan, S. H. Chen, J. H. L$\ddot{u}$. Outer Synchronization of Complex Networks by Impulse[J]. Commun. Theor. Phys. 2011, 56(5): 885–890.}
+%\bibitem{41}{S. Zheng. Inner-outer synchronization analysis of two complex networks with delayed and non-delayed coupling[J]. Journal
+%of Information and Computing Science, 2012, 7(1), 011-018.}
+%\bibitem{42}{曹素雯. 不同节点动态的复杂网络外部同步牵制控制[J].计算机技术与发展, 2013, 23(11), 124-128.}
+%\bibitem{43}{ X. J. Wu, H. T. Lu. Outer synchronization between two different fractional-order general complex dynamical networks[J]. Chin. Phys. B, 2010, 19(7), 070511.}
+%\bibitem{44}{P. He, C.~G. Jing, T. Fan, C. Z. Chen. Outer Synchronization of Complex Networks with Multiple CouplingTime-varying Delays[J]. International Journal of Control and Automation, 2013, 6(4): 197-216.}
+%\bibitem{45}{Y.~Z. Sun, W.~Li, J.~Ruan. Generalized outer synchronization between complex dynamical networks with time delay and noise perturbation[J]. Commun Nonlinear Sci Numer Simulat, 2013, 18: 989–998.}
+%\bibitem{46}{Z. C. Li, X. P. Xue. Outer synchronization of coupled networks using arbitrary coupling strength[J]. CHAOS, 2010, 20, 023106. }
+%\bibitem{47}{X. Q. Wu, W. X. Zheng, J. Zhou. Generalized outer synchronization between complex dynamical networks[J]. CHAOS, 2009, 19, 013109.}
+%
+%
+%\bibitem{48}{S. Zheng, W. Shao. Mixed outer synchronization of dynamical networks with nonidentical nodes and output coupling[J]. Nonlinear Dyn, 2013, 73: 2343-2352.}
+%\bibitem{49}{S. K. Bhowmick, C. Hens, D. Ghosh, S. Dana. Mixed synchronization in chaotic oscillators using scalar coupling[J]. Physics Letters A, 2012, 376: 2490–2495.}
+%\bibitem{50}{ J. Wei. Wang,  Q. H. Ma, L. Zeng. A novel mixed-synchronization phenomenon in coupled Chua’s circuits via non-fragile linear control[J]. Chin. Phys. B Vol. 2011, 20(8), 080506.}
+%\bibitem{51}{J. W. Wang, Q. H. Ma, Z. Li, S. A. E. Mohammed. Mixed outer synchronization of coupled complex networks with time-varyingcoupling delay[J]. Chaos. 2011, 21(1), 013121.}
+%\bibitem{52}{A. D. Dai, W. N. Zhou, J. W. Feng, J. A. Fang and S. B. Xu. Exponential synchronization of the coupling delayed switching
+%complex dynamical networks via impulsive control[J], Advances in Difference Equations, 2013, 195.}
+%
+%\bibitem{event-triggered-consensus}{D.~Xie, S.~Xu, Y.~Chu, Y.~Zou, Event-triggered average consensus for multi-agent systems with nonlinear dynamics and switching topology[J]. Journal of the Franklin Institute, 2015, 352(3): 1080--1098.}
+\end{thebibliography}
+
+
+
+

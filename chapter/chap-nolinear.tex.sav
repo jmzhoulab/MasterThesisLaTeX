@@ -1,0 +1,576 @@
+%%!Mode:: "Tex:UTF-8"
+\chapter{非线性随机发生的耦合复杂网络同步问题}
+
+在实际应用中, 网络间也存在着同步行为, 也就是外同步. 目前有关外同步的工作中,
+作者在文献$[37]$中首次分析了两个相互作用含有不同频率振荡器网络间的同步.
+Li等在文献$[46]$基于Lyapunov 泛函方法, 得到了任意耦合强度下具有对称的拓扑结构的网络渐进的达到外同步.
+然而在现实网络中, 节点间的信息传递往往由于信息阻塞等原因在发送方和接收方产生时滞, 但一般来说时滞不是固定不变的而是随着时间变化的, 由于环境因素, 现实网络中存在节点间信息交换同时滞并存的情况而网络中节点间耦合同时出现无时滞和时变时滞耦合, 如无线通信网络中由于环境噪声等影响用户间的通信会出现同时或滞后的情况. 基于此, Zheng 在$[41]$用牵制控制的方法, 讨论了两个无时滞和时滞网络的内外同步问题, 但他考虑的网络时滞项是不变的.
+本章是在$[41, 44, 45]$的结果上的扩展, 主要研究两个含有无时滞和时变时滞的复杂网络的外同步, 分别用牵制和脉冲控制两种方法进行理论分析.
+
+\section{事件激发牵制控制策略下的网络模型的描述}\label{csnp:sec:moper}
+        在网络控制理论中, 根据控制节点的数量可以将控制方法分为全局控制和牵制控制(局部控制). 牵制控制主要思想是通过控制较少的节点, 通过网络节点间的联系来传输控制信号以实现网络同步. 相比于全局控制, 牵制控制能够节省控制成本. 有时候只需控制一个节点就可以实现了网络同步. 一般在控制节点的选择上偏向于具有较大度的节点. 本节将牵制控制方法和分散式事件激发策略相结合, 控制带有马氏切换的随机发生非线性耦合复杂网络, 使之实现同步. 其模型如下:
+        \begin{align}\label{sys:init1}
+        \nonumber\dot{\bm x}_{i}(t)&=\bm f(\bm x_{i}(t))-\theta(t)\rho(t)\sum^N_{j=1}l_{ij}(\sigma_{t})\Gamma[\bm h(\bm x_{j}(t_{k}^{i}))-\bm h(\bm x_{i}(t_{k}^{i}))]+\bm u_i(t), \\
+        &\quad t_{k}^i\leq t< t_{k+1}^i, i = 1,\cdots,N,
+        \end{align}
+        其中$\theta(t)$是伯努利随机变量, 满足$P(\theta(t)=1)=\theta\in(0,1)$, 它描述网络系统随机发生的耦合;
+        $\rho(t)$是随机耦合强度, 其$\mathds{E}[\rho(t)]=c>0, Var(\rho(t))<\infty$. 本文假设$\sigma(t), \theta(t)$和$\rho(t)$是相互独立的; $\bm h(\bm x_{i}(t))=(h_{1}(x_{i}^{1}(t)),h_{2}(x_{i}^{2}(t)),\cdots,h_{n}(x_{i}^{n}(t)))^{\top}\in \mathds{R}^{n}$是非线性耦合函数;
+        $t_k^i$是第$i$个节点第$k$次事件激发的时刻.
+        控制输入$\bm u_i(t)$的定义如下:
+        $$\bm u_i(t)=-\tau \rho(t)d_{i}(\sigma_{t})\Gamma[\bm h(\bm x_{i}(t_{k}^{i}))-\bm h(\bm s(t_{k}^{i}))]$$
+        这里$\tau\rho(t)$是控制增益; $d_{i}(\sigma_{t})=I_{\{i\in \mathcal D(\sigma_{t})\}}$是牵制节点集$\mathcal D(\sigma_{t})\subset \{1,2,\cdots,N\}$上的示性函数, 即, 如果$i\in \mathcal D(\sigma_{t})$, 则$I_{\{i\in \mathcal D(\sigma_{t})\}}=1$, 否则$I_{\{i\in \mathcal D(\sigma_{t})\}}=0$; $s(t)$ 是未耦合系统$\dot{\bm s}(t)=\bm f(\bm s(t))$的轨道, 即同步的目标轨道.
+
+    \begin{hyp}\label{ass}
+        假设存在正数$\alpha_{k}$, $\beta_{k}(k=1,2,\cdots,n)$, 使得对任意$x,y\in\mathds{R}$, 有
+                $$\alpha_{k}\leq\frac{h_{k}(x)-h_{k}(y)}{x-y}\leq\beta_{k}.$$
+    \end{hyp}
+\section{分散式事件激发策略下同步分析}
+    \begin{lem}\label{lem:5}\cite{pinning-control}
+            设矩阵$Q\in \mathds{R}^{n \times n}$满足$q_{ij}=q_{ji}$, $q_{ii} =-\sum_{j=1,i \neq j}^n q_{ij}(i,j=1,2,\ldots,n)$, 则对任意向量$u=(u_1,u_2,\ldots,u_n)^\top$, $v=(v_1,v_2,\ldots,v_n)^\top$, 有
+            $$u^\top Qv=\sum_{i=1}^n\sum_{j=1}^n u_i q_{ij} v_j=-\sum_{j>i}q_{ij}(u_i-u_j)(v_i-v_j).$$
+    \end{lem}
+    \begin{lem}[Gronwall-Bellman不等式]\label{lem:6}\cite{Gronwall,Bellman}
+        设$\varphi(t), \alpha(t), \beta(t)$是区间$[a,b]$上的连续函数.
+
+       情形$1:$ 如果$\varphi(t)$在区间$[a,b]$上非负可微, 且对任意$t\in [a,b]$, 有
+            $$\dot{\varphi}(t)\geq \alpha(t)\varphi(t)+\beta(t).$$
+       那么
+            $$\varphi(t)\geq\varphi(a)e^{\int^{t}_{a}\alpha(s)ds}+\int^{t}_{a}\alpha(s)\beta(s)e^{\int^{t}_{s}\beta(u)du}ds.$$
+
+       情形$2:$ 如果$\beta(t)$在区间$[a,b]$上非负可积, 且对任意$t\in [a,b]$, 有
+            $$\varphi(t)\leq \alpha(t)+\int^{t}_{a}\beta(s)\varphi(s)ds.$$
+         那么
+            $$\varphi(t)\leq \alpha(t)+\int^{t}_{a}\alpha(s)\beta(s)e^{\int^{t}_{s}\beta(u)du}ds.$$
+    \end{lem}
+    定义网络系统的同步误差为$\bm e_{i}(t)=\bm x_{i}(t)-\bm s(t)(i=1,2,\cdots,N)$. 为了讨论方便, 引入下述记号:
+        %\begin{flalign}
+        %\begin{split}
+        \begin{eqnarray*}
+        &&\bm f(\bm e_{i}(t))=\bm f(\bm x_{i}(t))-\bm f(\bm s(t)),\\
+        &&\bm h(\bm e_{i}(t))=\bm h(\bm x_{i}(t))-\bm h(\bm s(t)),\\
+        &&\bm e(t)=(\bm e^\top_{1}(t),\bm e^\top_{2}(t),\cdots,\bm e^\top_{N}(t)^\top),\\
+        &&\bm f(\bm e(t))=(\bm f^\top(\bm e_{1}(t)),\bm f^\top(\bm e_{2}(t)),\cdots,\bm f^\top(\bm e_{N}(t))^\top),\\
+        &&\bm h(\bm e(t))=(\bm h^\top(\bm e_{1}(t)),\bm h^\top(\bm e_{2}(t)),\cdots,\bm h^\top(\bm e_{N}(t)))^\top,\\
+        &&D(\sigma_{t})=\text{diag}\{d_{1}(\sigma_{t}),d_{2}(\sigma_{t}),\cdots,d_{N}(\sigma_{t})\}.
+        %\end{split}&
+        %\end{flalign}
+        \end{eqnarray*}
+       于是网络系统 \eqref{sys:init1} 可以写成误差系统的形式:
+        \begin{align}\label{sys:all}
+        \dot{\bm e}(t)=\bm f(\bm e(t))-\theta(t)\rho(t)[L(\sigma_{t})\otimes\Gamma]\bm h(\bm e(t))-\tau \rho(t)[D(\sigma_{t})\otimes\Gamma] \bm h(\bm e(t))+\rho(t)\tilde{\bm e}(t),
+        \end{align}
+       其中$\tilde{\bm e}(t)=(\tilde{\bm e}^\top_{1}(t),\tilde{\bm e}^\top_{2}(t),\cdots,\tilde{\bm e}^\top_{N}(t))^\top$是系统测量误差, 其分量定义为如下:
+        \begin{align*}
+        \nonumber \tilde{\bm e}_{i}(t)=&\theta(t)\sum^{N}_{j=1}l_{ij}(\sigma_{t})\Gamma[\bm h(\bm x_{j}(t))-\bm h(\bm x_{j}(t_{k}^{i}))]\\
+        &-\tau d_{i}(\sigma_{t})[\bm h(\bm x_{i}(t))-\bm h(\bm x_{i}(t_{k}^{i}))+\bm h(\bm s(t_{k}^{i}))-\bm h(\bm s(t))].
+        \end{align*}
+\subsection{连续情形激发规则}
+    在连续情形情形下, 监控器实时地收集节点$x_i(t), x_j(t)$和$s(t)$的状态信息, 事件激发规则根据收集到的节点状态信息判断此时是否满足激发条件. 如果关于某个节点$i$ 的激发规则满足, 则关于节点$i$的事件就被激发, 从而获得新的事件激发时刻$t^{i}_{k+1}$. 与此同时, 节点$i$会更新自身以及邻居节点和控制器的信息至该激发时刻, 并且发送$t^i_{k_i(t)}$的状态给邻居节点, $k_{i}(t)=$argmax$_{k^{'}}\{t^{i}_{k^{'}}\leq t\}$. 于是邻居节点更新$t^{i}_{k}$时的状态信息为$t^{i}_{k+1}$时的状态信息, 但他们的事件不会被激发直到预设的激发条件满足. 流程图如下:
+    \begin{figure}[!htp]
+    \setlength{\abovecaptionskip}{-1cm}
+     \begin{center}
+           {\includegraphics[width=4.5in]{nonlinear/flowchartcon1.eps}}
+     \end{center}
+  \caption{连续情形下事件激发牵制控制流程图}\label{flowchart}
+    \end{figure}
+
+           情形a: 基于同步误差上界的连续情形事件激发规则(简称为CRS激发规则):
+            \begin{equation}\label{crule:1}
+            t^{i}_{k+1}=\max\left\{t\geq t^{i}_{k}: \|\tilde{e}_{i}(t)\| \leq\omega \| e_{i}(t)\|\right\}
+            \end{equation}
+
+            情形b: 基于指数函数上界的连续情形事件激发规则(简称为CRE激发规则):
+            \begin{equation}\label{crule:2}
+             t^{i}_{k+1}=\max\left\{t\geq t^{i}_{k}: \|\tilde{e}_{i}(t)\| \leq ae^{-bt}\right\}
+             \end{equation}
+           其中$\omega=\frac{2\xi\underline{\varepsilon}-\delta\bar{\varepsilon}}{2c\bar{\varepsilon}}$, $0<\delta\leq\frac{2\xi\underline{\varepsilon}}{\bar{\varepsilon}}$, $a>0$, $b>0$,
+              $\underline{\varepsilon}=\min_{v}\{\lambda_{min}(P(v))\cdot\lambda_{min}(G)\}$, $\bar{\varepsilon}=\max_{v}\{\lambda_{max}(P(v))\cdot\lambda_{max}(G)\}$.
+
+            网络系统激发的具体算法如下:
+            \begin{algo}[连续情形事件激发算法]\label{algo1}~~
+
+            $1)$ 对$i=1,2,\cdots,N$, 初始化: $t^i_0=0;$
+
+            $2)$ 当$t\geq t^i_k$时, 监控器实时收集节点$x_i(t),x_j(t)$, $s(t)$的状态信息并发送到激发机制 \eqref{crule:1}$($或者 \eqref{crule:2}$);$
+
+            $3)$ 若果$\|\tilde{e}_{i}(t)\|>\omega \| e_{i}(t)\|($或者 $\|\tilde{e}_{i}(t)\| > ae^{-bt})$, 则事件被激发, 最新的激发时刻$t^i_{k+1}=t$, 则返回$2)$;
+
+            $4)$ 当$t=t^i_{k+1}$时, 节点$i$以及它的邻居节点和控制器将会更新状态信息, 即用$t_{k+1}^i$时刻状态信息替换$t^i_{k}$时刻的状态信息, 返回$2)$.
+             \end{algo}
+        \begin{thm}\label{themcon}
+            如果假设 \eqref{ass} 成立, $f(\cdot)$属于$QUAD(G,\Delta,\xi)$, 并且存在正定对角阵$P(u)=${\songti diag}$\{p_{1}(u),\cdots p_{N}(u)\}$, $u\in S$, 使得对任意$u\in S$, 有
+            \begin{align}\label{thm:1}
+            \bar{\delta}P(u)\otimes G-c\theta\underline{\alpha} P(u)L(u)\otimes G\Gamma
+            -c\tau\underline{\alpha} P(u)D(u)\otimes G\Gamma+\frac{1}{2}\sum_{v=1}^{m}q_{uv}P(v)\otimes G\leq 0,
+            \end{align}
+            其中$\bar{\delta}=\max_{k}\{\delta_k \}$, $\underline{\alpha}=\min_{k}\{\alpha_{k}\}$.
+            那么, 基于CRS激发规则或者CRE激发规则, 按照算法 \eqref{algo1}, 网络系统 \eqref{sys:init1} 可以实现均方指数同步.
+        \end{thm}
+        \begin{proof}
+        在$\sigma(t)=u\in S$时, 定义随机Lyapunov-Krasovskii函数$V(t)$如下:
+        \begin{equation*}
+            V(t)=\frac{1}{2}e^{\top}(t)[P(u)\otimes G]e(t).
+        \end{equation*}
+        记$\mathcal{L}$是弱无穷小生成元算子. 根据\autoref{Kronecker} 和式 \eqref{sys:all} 以及$QUAD$条件, 有
+            \begin{align}\label{diff:V}
+            \nonumber E\mathcal{L}V(t)&=E\bigg\{e^{\top}(t)[P(u)\otimes G]\Big [F(e(t))-I\otimes\Delta e(t)+I\otimes\Delta e(t)-c\theta \left[L(u)\otimes\Gamma\right] H(e(t))\\
+            \nonumber &\quad-c\tau[D(u)\otimes\Gamma] H(e(t))+c\tilde{e}(t)\Big]+\frac{1}{2}\sum_{v}q_{uv}e^\top(t)\left[P(v)\otimes G\right]e(t)\bigg\}\\
+            \nonumber &\leq E\bigg\{(\bar{\delta}-\xi)e^\top(t)[P(u)\otimes G]e(t)-c\theta e^{\top}(t)[P(u)L(u)\otimes G\Gamma] H(e(t))\\
+            \nonumber &\quad-c\tau e^{\top}(t)[P(u)D(u)\otimes G\Gamma]H(e(t))+ce^{\top}(t)[P(u)\otimes G]\tilde{e}(t)\\
+            &\quad+\frac{1}{2}\sum_{v}q_{uv}e^{\top}(t)\left[P(u)\otimes G\right]e(t)\bigg\}
+            \end{align}
+        下面处理上式中含有非线性的项, 根据\autoref{ass} 和\autoref{lem:5}, 可得
+            \begin{align}\label{equ:2}
+            \nonumber&\quad-E\Big\{e^{\top}(t)[P(u)L(u)\otimes G\Gamma]H(e(t))\Big\}\\
+            &=-E\bigg\{\sum^{N}_{i=1}\sum^{N}_{j=1}e^{\top}_{i}(t)p_i(u)l_{ij}(u)G\Gamma h(e_{j}(t))\bigg\}\\
+            \nonumber &=-E\bigg\{\sum^{N}_{i=1}\sum^{N}_{j=1}p_i(u)l_{ij}(u)\sum^{n}_{k=1}e^{k}_{i}(t)g_{k}\gamma_{k}h_{k}(e^{k}_{j}(t))\bigg\}\\
+            \nonumber &=-E\bigg\{\sum^{n}_{k=1}g_{k}\gamma_{k}\sum^{N}_{i=1}\sum^{N}_{j=1}p_i(u)l_{ij}(u)e^{k}_{i}(t)h_{k}(e^{k}_{j}(t))\bigg\}\\
+            \nonumber &=E\bigg\{\sum^{n}_{k=1}p_{k}\gamma_{k}\sum_{j>i}p_i(u)l_{ij}(u)(e^{k}_{i}(t)-e^{k}_{j}(t))(h_{k}(e^{k}_{i}(t))-h_{k}(e^{k}_{j}(t)))\bigg\}\\
+            \nonumber &\leq\underline{\alpha}E\bigg\{\sum^{n}_{k=1}g_{k}\gamma_{k}\sum_{j>i}p_i(u)l_{ij}(u)(e^{k}_{i}(t)-e^{k}_{j}(t))^2\bigg\}\\
+             &=-\underline{\alpha}E\Big\{ e^{\top}(t)[P(u)L(u)\otimes G\Gamma]e(t)\Big\}.
+            \end{align}
+        利用类似的方法可得如下关系式:
+            \begin{align}\label{equ:3}
+            -E\Big\{e^{\top}(t)[P(u)D(u)\otimes G\Gamma]H(e(t))\Big\}\leq-\underline{\alpha} E\Big\{e^{\top}(t)[P(u)D(u)\otimes G\Gamma]e(t)\Big\}.
+            \end{align}
+        对于式 \eqref{diff:V} 中含有系统测量误差的项, 通过运用\autoref{lem:2} 和\autoref{lem_leq}, 可得
+            \begin{align}\label{equ:4}
+            \nonumber E\Big\{e^{\top}(t)[P(u)\otimes G]\tilde{e}(t)\Big\}&\leq E\Big\{\frac{\mu}{2}e^{\top}(t)[P(u)\otimes G]^2e(t)+\frac{1}{2\mu}\tilde{e}^{\top}(t)\tilde{e}(t)\Big\}\\
+            &\leq E\Big\{\frac{\mu\bar{\varepsilon}^2}{2}e^{\top}(t)e(t)+\frac{1}{2\mu}\tilde{e}^{\top}(t)\tilde{e}(t)\Big\},
+            \end{align}
+            其中$\mu$是正常数. 将式 \eqref{equ:2}$-$\eqref{equ:4} 代入式 \eqref{diff:V}, 并结合式 \eqref{thm:1} 可得
+            \begin{align}\label{equ:5}
+            \nonumber E\mathcal{L}V(t)&\leq E\Big\{e^{\top}(t)\Big[\bar{\delta}P(u)\otimes G-c\theta\underline{\alpha} P(u)L(u)\otimes G\Gamma\\
+            \nonumber &\quad-c\tau\underline{\alpha} P(u)D(u)\otimes G\Gamma+\frac{1}{2}\sum_{v=1}^{m}q_{uv}P(v)\otimes G\Big]e(t)\\
+            \nonumber &\quad+(\frac{c\mu\bar{\varepsilon}^2}{2}+\frac{\delta\bar{\varepsilon}}{2}-\xi\underline{\varepsilon}) e^{\top}(t)e(t)
+            +\frac{1}{2\mu}\tilde{e}^{\top}(t)\tilde{e}(t)-\frac{\delta\bar{\varepsilon}}{2}e^{\top}(t)e(t)\Big\}\\
+            &\leq E\Big\{(\frac{c\bar{\varepsilon}^2\mu}{2}-c\bar{\varepsilon}\omega)e^\top(t)e(t)+\frac{c\bar{\varepsilon}}{2\omega}\tilde{e}^{\top}(t)\tilde{e}(t)\Big\}
+            -\delta EV(t,e(t)).
+            \end{align}
+
+            情形a: 当选用CRS激发规则时, 此时选择常数$\delta$使得$0<\delta\leq\frac{2\xi\underline{\varepsilon}}{\bar{\varepsilon}}$即可. 根据激发条件式 \eqref{crule:1}可得
+            \begin{align}\label{equ:18}
+                E\tilde{e}^{\top}(t)\tilde{e}(t)\leq\omega^2Ee^\top(t)e(t).
+            \end{align}
+            由于式 \eqref{equ:5} 对任意$\mu>0$都成立, 因此可取$\mu=\frac{\omega}{\bar{\varepsilon}}$并将其代入式 \eqref{equ:5}, 结合式 \eqref{equ:18}), 可得
+            \begin{align*}
+                E\mathcal{L}V(t)\leq -\delta EV(t).
+            \end{align*}
+            根据比较原理可得
+            \begin{align*}
+            EV(t)\leq EV(0)e^{-\delta t}.
+            \end{align*}
+            因此
+            \begin{align*}
+             E\| x_{i}(t)-s(t)\|^2&\leq\frac{2}{\underline{\varepsilon}}EV(0)e^{-\delta t},\quad i=1,2,\cdots,N.
+            \end{align*}
+            所以在CRS激发规则下, 网络系统 \eqref{sys:init1} 可以达到均方指数同步.
+
+        情形b: 当选用CRE激发规则时, 根据激发条件式 \eqref{crule:2} 可得
+            \begin{align}\label{equwan}
+                E\tilde{e}^{\top}(t)\tilde{e}(t)\leq Na^2e^{-2bt}.
+            \end{align}
+        因为式 \eqref{equ:5} 对任意$\mu>0$成立, 故取$\mu=\frac{2\omega}{\bar{\varepsilon}}$并代入式 \eqref{equ:5}, 结合式 \eqref{equwan}), 可得
+            \begin{align*}
+            E\mathcal{L}V(t)
+            \leq \frac{Nca^2\bar{\varepsilon}}{2\omega}e^{-2bt} -\delta EV(t).
+            \end{align*}
+        求解上式相对应的微分方程并利用比较原理可得
+            \begin{align*}
+            EV(t,e(t))&\leq\frac{Nca^2\bar{\varepsilon}}{2\omega(-2b+\delta)}\Big[e^{(-2b+\delta)t}-1\Big]e^{-\delta t}+ EV(0,e(0))e^{-\delta t}
+            =\pi e^{-\delta t},
+            \end{align*}
+        其中$\pi=EV(0,e(0))+\frac{Nca^2\bar{\varepsilon}}{2\omega(-2b+\delta)}(e^{(-2b+\delta)t}-1)$. 根据$V(t)$的定义可得
+             \begin{align*}
+             E\| x_{i}(t)-s(t)\|^2\leq\frac{2\pi}{\underline{\varepsilon}}e^{-\delta t},\quad i=1,2,\cdots,N.
+            \end{align*}
+           因此在CRE激发规则下, 网络系统 \eqref{sys:init1} 可以达到均方指数同步.
+        \end{proof}
+        \begin{rem}
+           %System measurement error is controlled by synchronization error based CRS. It can adjust automatically synchronous speed and triggered frequency according to the synchronization error. Hence CRS costs less time than CRE in achieving synchronization. The advantage of CRE is that we can adjust synchronous speed and triggered frequency as required. In practical application, when the signal transmission costs a lot of energy, we can use CRE and select larger $a$ and smaller $b$ to reduce the triggered frequency. When we hope a system to achieve synchronization as soon as possible, CRS is a good choice.
+           CRS激发规则中的系统测量误差被同步误差控制, 其系数$\omega$是有系统决定的, 不可以被修改. 而CSE激发规则中的系统测量误差被指数函数控制, 激发规则中的参数 $a$和$b$可以根据所需的同步速度和激发频率进行选择. 一般上, CRS激发规则的同步速度会比CRE激发规则快, 但是CRS激发规则的激发频率会高于CRE激发规则. 高激发频率会引起系统间的数据频繁更新, 因此CRS激发规则比CRE激发规则有更大的计算负荷. 至于监控成本方面, 两种激发规则花费的成本是一样的.
+        \end{rem}
+
+\subsection{离散情形激发规则}
+
+        连续情形激发规则不仅需要实时监控节点的状态信息, 同时激发规则的信息也需要实时地更新. 因此连续情形会花费较高的监控成本和通讯负荷. 为了较少监控成本和通讯负荷, 这一节研究采用离散情形模式. 不同于连续情形激发策略, 在离散情形激发策略中, 节点的状态信息只在$t=t^i_k$ 时刻时监控. 然后根据最新监控得到的状态信息进行预测下一次事件激发的间隔$\pi_k^i$来确定下一次激发时刻. 当时间达到预测的激发时刻, 即$t=t_k+\pi_k^i$时, 关于节点$i$的事件就被激发, 新的激发时刻$t^i_{k+1}$ 被确定. 此时, 监控器记录该时刻的状态信息发送至控制器和各邻居节点. 同时节点$i$和其邻居节点重新预测下一次激发间隔. 详见如下预测激发过程图.
+        \begin{figure}[!htp]
+        \setlength{\abovecaptionskip}{-1cm}
+        \begin{center}
+           {\includegraphics[width=4.5in]{nonlinear/flowchartdec2.eps}}
+        \end{center}
+        \caption{离散情形下的预测激发过程图}\label{flowchart}
+        \end{figure}
+
+        与连续情形情形一样, 这里也给出两种不同系统误差上界的激发规则. 不同的是, 离散情形情形下给出的是与系统误差和同步误差相关函数.
+
+        情形c: 基于同步误差上界的离散情形激发规则(简称为DRS激发规则)
+        \begin{align}\label{drule:1}
+            \nonumber \pi^{i}_{k}=&\max\Big\{t:
+            \sum^N_{j=1,j\neq i}(-l_{ij}(\sigma_{t+t^i_k}))\varphi(t,\xi^i_k,\zeta^j_{k_j(t+t^i_k)},x_i(t^i_k),x_j(t^i_k))\\
+             &\quad+\tau d_i(\sigma_{t+t^i_k})\varphi(t,\xi^i_k,0,x_i(t^i_k),s(t^i_k))
+            \leq\omega \psi(t,\xi^i_k,0,x_i(t^i_k),s(t^i_k))\Big\},\\
+           \nonumber t_{k+1}^i&=t_{k}^i+\pi^{i}_{k},
+            \end{align}
+        其中$\omega=\frac{2\xi\underline{\varepsilon}-\delta\bar{\varepsilon}}{2c\bar{\varepsilon}}$, $0<\delta\leq\frac{2\xi\underline{\varepsilon}}{\bar{\varepsilon}}$, $\xi^i_k=z_i(\sigma_t,t^i_k)$, $\zeta^j_{k_j(t+t^i_k)}=z_j(\sigma_t,t^j_{k_j(t+t^i_k)})$, 函数$z_i(\cdot,\cdot)$, $z_j(\cdot,\cdot)$, $\varphi(\cdot,\cdot,\cdot,\cdot,\cdot)$和$\psi(\cdot,\cdot,\cdot,\cdot,\cdot)$的具体定义将会在\autoref{thm:qn} 中给出.
+
+        情形d: 基于指数函数上界的离散情形激发规则(简称为DRE激发规则)
+        \begin{align}\label{drule:2}
+             \nonumber \pi^{i}_{k}=&\max\Big\{t:
+            \sum^N_{j=1,j\neq i}(-l_{ij}(\sigma_{t+t^i_k}))E\varphi(t,\xi^i_k,\zeta^j_{k_j(t+t^i_k)},x_i(t^i_k),x_j(t^i_k))\\
+            &\quad+\tau d_i(\sigma_{t+t^i_k})E\varphi(t,\xi^i_k,0,x_i(t^i_k),s(t^i_k))
+            \leq ae^{-b(t+t^i_k)}\Big\},\\
+            \nonumber t_{k+1}^i&=t_{k}^i+\pi^{i}_{k},
+            \end{align}
+        其中$a$和$b$是正常数.
+        \begin{rem}
+            离散情形下的激发规则分为两个部分, 一个是预测部分, 另一个是判断部分. 预测部分是整个激发规则最主要部分. 相比与连续的监控激发规则, 离散情形激发规则更加复杂.
+        \end{rem}
+            \begin{algo}[离散情形事件激发算法]\label{algo2}~~
+
+            $1)$ 对所有$i=1,2,\cdots,N$, 初始化: $t^i_0=0$;
+
+            $2)$ 当$t=t^i_k$时, 控制器收集节点状态信息$x_i(t_k^i), x_j(t^j_{k_j(t_k^i)})$以及$s(t_k^i)$并传递给预测机制;
+
+            $3)$ 预测机制根据 \eqref{drule:1}$($或者 \eqref{drule:2}$)$预测下一次事件激发间隔$\pi_k^i$;
+
+            $4)$ 当$t_k^i<t<t^i_k+\pi^i_k$时, 如果存在某个邻居节点$j$的事件被激发, 则$t^j_{k_j+1}=t$, 返回$3)$;
+
+            $5)$ 如果$\sigma_t$的状态发生转移, 则返回$2)$;
+
+            $6)$ 当$t=t^i_k+\pi^i_k$时, 则节点$i$的事件被激发, 新的事件激发时刻$t_{k+1}^i=t$. 此时节点$i$以及它的邻居节点和控制器将会更新, 即利用$t^i_{k+1}$时的状态信息替换$t^i_k$时的状态信息, 返回$2)$.
+             \end{algo}
+
+         \begin{lem}\label{lem:7}
+            若函数$f(\cdot): R^n\mapsto R^n$满足Lipschitz条件, 即存在常数$l>0$, 使得对任意$x, y\in R^n$有$\| f(x)-f(y)\|<l\| x-y\|$成立, 则函数$f(\cdot)$满足QUAD条件.
+        \end{lem}
+        \begin{proof}
+            取$G=I_n, \Delta=(1+\frac{l}{2})I_n$, 则根据\autoref{lem_leq} 和Lipschitz条件可得
+            \begin{align*}
+              &\quad(x-y)^\top G[f(x)-f(y)-\Delta(x-y)]\\
+              &=(x-y)\top[f(x)-f(y)]-(1+\frac{l^2}{2})(x-y)^\top(x-y)\\
+              &\leq\frac{1}{2}(x-y)^\top(x-y)+\frac{1}{2}(f(x)-f(y))^\top(f(x)-f(y))-(1+\frac{l^2}{2})(x-y)^\top(x-y)\\
+              &\leq-\frac{1}{2}(1+l^2)(x-y)^\top(x-y)+\frac{l^2}{2}\| x-y\|^2\\
+              &=-\frac{1}{2}(x-y)^\top G(x-y).
+            \end{align*}
+            因此根据\autoref{lipuxici}, 函数$f(\cdot)$满足QUAD条件.
+        \end{proof}
+
+        \begin{thm}\label{thm:qn}
+            如果假设 \ref{ass} 成立, $f(\cdot)\in L(l_{1},l_{2})$和$f(\cdot)\in C(\sigma)$, 并且存在正定对角阵$P(u)=diag\{p_1(u),\cdots,p_N(u)\}$, $u\in S$, 使得对任意$u\in S$, 有
+            \begin{align*}
+            \bar{\delta}P(u)\otimes G-c\theta\underline{\alpha} P(u)L(u)\otimes G\Gamma
+            -c\tau\underline{\alpha} P(u)D(u)\otimes G\Gamma+\frac{1}{2}\sum_{v=1}^{m}q_{uv}P(v)\otimes G\leq 0,
+            \end{align*}
+            其中$\bar{\delta}=\max_{k}\{\delta_k \}$, $\underline{\alpha}=\min_{k}\{\alpha_{k}\}$,
+            那么, 基于DRS激发规则或者DRE激发规则, 按照算法 \eqref{algo2}, 网络系统 \eqref{sys:init1} 可以实现均方指数同步.
+        \end{thm}
+        \begin{proof}
+        该定理的条件与\autoref{themcon} 的条件是一样的, 唯一不同的是事件激发规则. 因此主要证明思路是考察在离散情形事件激发规则成立的条件下连续情形事件激发规则是否也成立. 这只要判断$\|\tilde{e}_i(t)\|$的上界函数和$\|e_i(t)\|$的下界函数是否是$\varphi$和$\psi$即可. 当$l_{ij}(\sigma_t)\neq 0$时, 首先估计$\|(h(x_j(t))-h(x_j(t^i_k)))-(h(x_i(t))-h(x_i(t^i_k)))\|$的上界函数. 显然$h(x_i(\cdot)),h(x_j(\cdot))$满足如下方程:
+            \begin{equation}\label{sys:discrete}
+                \bigg\{\begin{array}{c}
+                    \dot{x}_i(t)=f(x_i(t))+z_i(\sigma_t,t^i_k), \quad    \\
+                    \dot{x}_j(t)=f(x_j(t))+z_j(\sigma_t,t^j_{k_j(t)}),
+                \end{array}\\
+            \end{equation}
+       这里$t\in[t^i_k, \min\{ t^i_{k+1}, t^j_{k_j(t)+1}\}]$,
+       $z_i(\sigma_t,t^i_k)$和$z_j(\sigma_t,t^i_k)$的定义如下:
+        \begin{align}\label{zi}
+        \nonumber z_\iota(\sigma_t,t^\iota_k)&=-\theta(t)\rho(t)\sum^N_{j=1}l_{\iota j}(\sigma_{t})\Gamma[h(x_{j}(t_{k}^{\iota}))-h(x_{\iota }(t_{k}^{\iota}))]\\
+        &\quad-\tau\rho(t)d_{\iota}(\sigma_{t})\Gamma[h(x_{\iota}(t_{k}^{\iota}))-h(s(t_{k}^{\iota}))].
+        \end{align}
+        为了讨论的方便, 将方程组 \eqref{sys:discrete} 一般化为
+            \begin{equation}\label{sys:dis-gener}
+                \bigg\{\begin{array}{c}
+                    \dot{u}=f(u)+\xi,   \\
+                    \dot{v}=f(v)+\zeta,
+                \end{array}
+            \end{equation}
+       其中$u=u(t),v=v(t),u(0)=u_0,v(0)=v_0\in R^n$.
+        根据\autoref{ass} 可得
+            \begin{align}\label{equ:12}
+            \nonumber&\quad\|(h(u)-h(u_0))-(h(v)-h(v_0))\|^2\\
+            \nonumber &=\sum^n_{k=1}[ (h_k(u^k)-h_k(u^k_0))-(h_k(v^k)-h_k(v^k_0))]^2\\
+            \nonumber &=\sum^n_{k=1}[(h_k(u^k)-h_k(u^k_0))^2+(h_k(v^k)-h_k(v^k_0))^2]\\
+            \nonumber &\quad-2\sum^n_{k=1}(h_k(u^k)-h_k(u^k_0))(h_k(v^k)-h_k(v^k_0)) \\
+            \nonumber &\leq \bar{\beta}^2\sum^n_{k=1}[ (u^k-u^k_0)^2+(v^k-v^k_0)^2]
+            -2\sum^n_{k=1}(h_k(u^k)-h_k(u^k_0))(h_k(v^k)-h_k(v^k_0))\\
+            \nonumber &=\bar{\beta}^2\sum^n_{k=1}[(u^k-u^k_0)-(v^k-v^k_0)]^2+\varrho\\
+            &=\bar{\beta}^2\|(u-u_0)-(v-v_0)\|^2+\varrho,
+            \end{align}
+           其中$\bar{\beta}=\max_k\{\beta_k\}$, $\varrho=\sum^n_{k=1}[2\bar{\beta}^2(u^k-u^k_0)(v^k-v^k_0)-2(h_k(u^k)-h_k(u^k_0))(h_k(v^k)-h_k(v^k_0))]$.
+            对$\varrho$进一步线性化可得:
+            \begin{align}\label{equ:13}
+            \nonumber \varrho&\leq\sum^n_{k=1}[2\bar{\beta}^2(u^k-u^k_0)(v^k-v^k_0)+(h_k(u^k)-h_k(u^k_0))^2+(h_k(v^k)-h_k(v^k_0))^2]\\
+            \nonumber &\leq\sum^n_{k=1}[2\bar{\beta}^2(u^k-u^k_0)(v^k-v^k_0)+\bar{\beta}^2(u^k-u^k_0)^2+\bar{\beta}^2(v^k-v^k_0)^2]\\
+            \nonumber &=\bar{\beta}^2\sum^n_{k=1}(u^k-u^k_0+v^k-v^k_0)^2\\
+            &=\bar{\beta}^2\| u-u_0+v-v_0 \|^2.
+            \end{align}
+        将式 \eqref{equ:13}代入式 \eqref{equ:12}可得
+            \begin{align}\label{equ:up1}
+            \nonumber &\quad\|(h(u)-h(u_0))-(h(v)-h(v_0))\|^2\\
+            &\leq\bar{\beta}^2\|(u-u_0)-(v-v_0)\|^2+\bar{\beta}^2\| u-u_0+v-v_0 \|^2.
+            \end{align}
+        因为$f(\cdot)$属于函数类$L(l_{1},l_{2})$, 根据方程 \eqref{sys:dis-gener}, 有
+            \begin{align}\label{equ:up2}
+            \nonumber &\quad\|(u(t)-u_0)-(v(t)-v_0)\|\\
+            \nonumber &=\|\int^t_0[f(u(s))-f(v(s))]ds+(\xi-\zeta)t\|\\
+            \nonumber &\leq\int^t_0\|f(u(s))-f(v(s))\|ds+\|\xi-\zeta\|t\\
+            \nonumber &\leq l_1\int^t_0\|u(s)-v(s)\|ds+|\xi-\zeta\|t\\
+             &\leq l_1\int^t_0\|(u(s)-u_0)-(v(s)-v_0)\|ds+(\|\xi-\zeta\|+l_1\|u_0-v_0\|)t.
+            \end{align}
+        类似地
+            \begin{align}\label{equ:up3}
+            \nonumber &\quad\| (u(t)-u_0)+(v(t)-v_0)\|\\
+            \nonumber &=\|\int^t_0t[f(u(s))+f(v(s))]ds+(\xi+\zeta)t\|\\
+            \nonumber &\leq\int^t_0\|f(u(s))+f(v(s))\|ds+\|\xi+\zeta\|t\\
+            \nonumber &\leq l_2\int^t_0\|u(s)+v(s)\|ds+\|\xi+\zeta\|t\\
+             &\leq l_2\int^t_0\|(u(s)-u_0)+(v(s)-v_0)\|ds+(\|\xi+\zeta\|+l_2\|u_0+v_0\|)t.
+            \end{align}
+        对式 \eqref{equ:up2}和式\eqref{equ:up3} 分别应用Gronwall$-$Bellman不等式, 可得
+            \begin{align}\label{equ:up4}
+            \|(u(t)-u_0)-(v(t)-v_0)\|\leq\eta_1(\exp^{l_1t}-1),
+            \end{align}
+       其中$\eta_1=(\|\xi-\zeta\|+l_1\|u_0-v_0\|)/l_1$;
+            \begin{align}\label{equ:up5}
+            \|(u(t)-u_0)+(v(t)-v_0)\|\leq\eta_2(\exp^{l_2t}-1),
+            \end{align}
+       其中$\eta_2=(\|\xi+\zeta\|+l_2\|u_0+v_0\|)/l_2$.\\
+       结合式 \eqref{equ:up1}、\eqref{equ:up4} 和 \eqref{equ:up5} 可得
+            \begin{align}\label{equ:up6}
+            \|(h(u)-h(u_0))-(h(v)-h(v_0))\|\leq\varphi(t,\xi,\zeta,u_0,v_0),
+            \end{align}
+        其中$\varphi(t,\xi,\zeta,u_0,v_0)=\bar{\beta}\sqrt{(\eta_1^2(e^{l_1t}-1)^2+\eta_2^2(e^{l_2t}-1)^2)}$.
+        因此$\|(h(u)-h(u_0))-(h(v)-h(v_0))\|$的上界函数已得到.
+
+        接下来估计$\| u(t)-v(t)\|$的下界函数. 根据\autoref{lem_leq} 和方程 \eqref{sys:dis-gener}) 可得
+            \begin{align}\label{equ:low1}
+            \nonumber &\quad\frac{d}{dt}[(u(t)-v(t))^\top(u(t)-v(t))]\\
+            \nonumber &=2(u(t)-v(t))^\top(f(u(t))-f(v(t))+\xi-\zeta)\\
+            \nonumber &=2(u(t)-v(t))^\top(f(u(t))-f(v(t)))+2(u(t)-v(t))^\top(\xi-\zeta)\\
+            \nonumber &\geq 2\sigma(u(t)-v(t))^\top(u(t)-v(t))+2(u(t)-v(t))^\top(\xi-\zeta)\\
+            \nonumber &\geq 2\sigma(u(t)-v(t))^\top(u(t)-v(t))-\sigma(u(t)-v(t))^\top(u(t)-v(t))-\frac{1}{\sigma}(\xi-\zeta)^\top(\xi-\zeta)\\
+            &=\sigma(u(t)-v(t))^\top(u(t)-v(t))-\frac{1}{\sigma}(\xi-\zeta)^\top(\xi-\zeta).
+            \end{align}
+        通过利用\autoref{lem:6}, 可以推出
+        \begin{align}\label{equ:low3}
+        (u(t)-v(t))^\top(u(t)-v(t))\geq (u_0-v_0)^\top(u_0-v_0)e^{\sigma t}-\frac{(\xi-\zeta)^\top(\xi-\zeta)}{\sigma^2}(e^{\sigma t}-1).
+        \end{align}
+        由于对任意$u_0\neq v_0$,式 \eqref{equ:low3} 右端在小区间$[0, t]$上是正数, 故有
+        \begin{align}\label{equ:low4}
+        \| u(t)-v(t)\|\geq \psi(t,\xi,\zeta,u_0,v_0),
+        \end{align}
+        其中
+        $$\psi(t,\xi,\zeta,u_0,v_0)=\Big\{\| u_0-v_0\|^2 e^{\sigma t}-\frac{\|\xi-\zeta\|^2}{\sigma^2}(e^{\sigma t}-1)\Big\}^\frac{1}{2}.$$
+
+        综上所述, 如果激发规则DRS满足, 那么根据式 \eqref{equ:up6} 和 \eqref{equ:low4}, 激发规则CRS也满足. 类似地, 如果激发规则DRE满足, 那么根据式 \eqref{equ:up6}), 激发规则CRE也满足. 因此根据\autoref{themcon} 的结论, 网络系统 \eqref{sys:init1} 可以实现均方指数同步.
+        \end{proof}
+        \begin{rem}
+        几何上, $\varphi$可以看作是在映射$h$下$u(t)$和$v(t)$从$0$时刻 到$t$时刻的位移差的上界函数, 而$\psi$可以看作是$u(t)$和$v(t)$在$t$时刻的距离的下界函数.
+        \end{rem}
+        \begin{rem}
+        在DRS激发规则中, 从$0$时刻到$t$时刻轨道之间的位移差的上界函数被同步误差的下界函数控制, 而在DRE激发规则中, 从$0$时刻到$t$时刻轨道之间的位移差的上界函数被可由参数$a$, $b$调节收敛速度的指数函数控制. 因此DRS激发规则的同步速度比DRE激发规则快, 但DRS激发规则的激发次数比DRE激发规则高. 故在选择激发规则时, 需要在收敛速度和激发次数之间进行取舍. 如果状态监控、数据更新、信号通讯成本较低, 对同步速度要求不高的情况下, 则选用DRE激发规则并选择较大的参数$a$, $b$, 否则选择DRS 激发规则较好. 四种激发函数的各方面特征比较如下:
+        \end{rem}
+\begin{table}[!hbp]
+\setlength{\abovecaptionskip}{-1pt}
+\setlength{\belowcaptionskip}{-1pt}
+\caption{四种激发规则的特征比较}\label{table11}
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+同步速度 & CRS$>$DRS, CRE$>$DRE\\
+\hline
+监控成本 & CRS$=$CRE$>$DRS$>$DRE\\
+\hline
+计算负荷 & DRS$>$DRE$>$CRS$>$CRE\\
+\hline
+激发次数 & DRS$>$DRE$>$CRS$>$CRE\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+        \begin{rem}
+        连续情形激发规则和离散情形激发规则最大的区别在于收集数据时刻的不同, 在连续情形情形中, 监控器需要不停地监控网络所有节点状态并收集记录其状态信息, 激发规则需要根据收集到数据进行实时更新, 即激发规则每时每刻都需要计算和判断条件是否满足. 而在离散情形激发规则中, 监控器也实时监控所有节点状态, 但是并不需要实时地收集记录节点状态信息, 而是只在事件激发时刻将数据信号收集并传递给预测机制, 预测机制根据收集得到的数据进行预测下一次激发时刻, 即激发规则是需要在激发时刻对数据进行更新.
+        \end{rem}
+\section{数值模拟}
+        本节给出一个数值例子去验证前文提出定理结论的有效性, 并在数值例子中比较四种激发规则的性能. 该例子考虑含有$100$个节点的复杂网络, 每个节点都有$3$维的状态组成. 网络模型如下:
+        \begin{align}\label{simulate}
+        \nonumber\dot{x}_{i}(t)=&f(x_{i}(t))-\theta(t)\rho(t)\sum^{100}_{j=1}l_{ij}(\sigma_{t})\Gamma[h(x_{j}(t_{k}^{i}))-h(x_{i}(t_{k}^{i}))]+u_i(t),\\
+         &\quad t_{k}^i\leq t< t_{k+1}^i, \quad i = 1,\cdots,100.\\
+        \nonumber u_i(t)=&-\tau \rho(t)d_{i}(\sigma_{t})\Gamma[h(x_{i}(t_{k}^{i}))-h(s(t_{k}^{i}))],
+        \end{align}
+        其中网络可能的拓扑结构图见\autoref{topology1}、\autoref{topology2} 和\autoref{topology3}, 这里选择著名的蔡氏电路系统作为自动力学性态, 它的动力学方程为:
+        \begin{align*}
+           f(x)=\left(
+                  \begin{array}{c}
+                    z_1(-x_1+x_2-g(x_1)) \\
+                    x_1-x_2+x_3 \\
+                    -z_2(x_2) \\
+                  \end{array}
+                \right)
+           \end{align*}
+        其中$g(x_1)=r_1x_1+1/2(r_2-r_1)(|x_1+1|-|x_1-1|)$, $z_1=9.78,z_2=14.97,r_1=-0.75,r_2=-1.31$.
+        非线性耦合函数以及状态空间$S=\{1,2,3\}$的马尔科夫链的转移率矩阵如下所示:
+           \begin{align*}
+           h(x)=\left(
+                  \begin{array}{c}
+                    2x_1+0.2\sin x_1 \\
+                    2x_2+1 \\
+                    3x_3+0.5\cos x_3 \\
+                  \end{array}
+                \right),~~~~
+           Q=\left(
+            \begin{array}{ccc}
+              -8 & 4 & 4 \\
+              5 & -8 & 3 \\
+              1 & 7 & -8 \\
+            \end{array}
+          \right).
+           \end{align*}
+        根据$h(x)$定义, 通过计算可知, 取$\alpha=1.95, \beta=3.25$可是得$h(x)$满足\autoref{ass}. 可能的牵制控制节点为: $\mathcal{D}_1=\{1,20,50,79\}, \mathcal{D}_2=\{1,23,43,54\}$, $\mathcal{D}_3=\{1,4,29,31\}$.
+        $\theta(t)$是参数为$p=0.8$伯努利随机变量, $\rho(t)$是参数为$\mu=12,\sigma^2=1$的正态随机变量. 其演变情况如\autoref{random} 所示.
+\begin{figure}[!htb]
+\begin{minipage}[t]{0.48\linewidth}
+\centering
+\includegraphics[width=3.2in]{nonlinear/NewL1.pdf}
+\caption{马尔科夫链处在状态$1$下的网络拓扑结构.}\label{topology1}
+\end{minipage}~~
+\begin{minipage}[t]{0.48\linewidth}
+\centering
+\includegraphics[width=3.2in]{nonlinear/NewL2.pdf}
+\caption{马尔科夫链处在状态$2$下的网络拓扑结构.}\label{topology2}
+\end{minipage}
+\end{figure}
+
+\begin{figure}[!htb]
+\begin{minipage}[t]{0.48\linewidth}
+\centering
+\includegraphics[width=3.2in]{nonlinear/NewL3.pdf}
+\caption{马尔科夫链处在状态$3$下的网络拓扑结构.}\label{topology3}
+\end{minipage}~~
+\begin{minipage}[t]{0.48\linewidth}
+\centering
+\includegraphics[width=3.2in]{nonlinear/randomvariabel.eps}
+\caption{马尔科夫链和随机变量的变化图.}\label{random}
+\end{minipage}
+\end{figure}
+
+        下面选择相应的参数使得\autoref{themcon} 和\autoref{thm:qn}的条件成立.
+        取$\Gamma=G=P(u)=I_3, \Delta=\epsilon I_3$, $\epsilon=11.7$. 通过对函数$f$求偏导数可得其可能的Jacobin为:
+        \begin{align*}
+        \left(
+              \begin{array}{ccc}
+                3.0318 & 9.78 & 0 \\
+                1 & -1 & 1 \\
+                0 & -14.97 & 0 \\
+              \end{array}
+            \right),~~~~
+        \left(
+              \begin{array}{ccc}
+                -2.445 & 9.78 & 0 \\
+                1 & -1 & 1 \\
+                0 & -14.97 & 0 \\
+              \end{array}
+            \right).
+        \end{align*}
+        因此取$\xi=\epsilon-9.1207=2.5793$, 其中$9.1207$是Jacobin矩阵对称部分的最大特征值.
+        接下来估计参数$l_1,l_2$, 根据微分中值定理可得:
+        \begin{align*}
+        &\quad(f(u)f(v))^\top((f(u)-f(v)))\\
+        &=(J(\varsigma)(u-v))^\top(J(\varsigma)(u-v))\\
+        &=(u-v)^\top J(\varsigma)^\top J(\varsigma)(u-v)\\
+        &\leq\lambda_{max}(J(\varsigma)^\top J(\varsigma))(u-v)^\top(u-v)\\
+        &\leq17.9826^2(u-v)^\top(u-v)
+        \end{align*}
+        故取$l_1=17.9826$可使得$\parallel f(u)-f(v)\parallel\leq l_1\parallel u-v\parallel$. 记$\nu=z_1(1+r_1)$或者$z_1(1+r_2)$, $\mu=x+s$, 于是
+        \begin{align*}
+         &\quad\| f(x)+f(s)\|^2\\
+         &=(-\nu\mu_1+z_1)^2+(\mu_1-\mu_2+\mu_3)^2+(z_2\mu_2)^2\\
+         &=(\nu^2+1)\mu_1^2+(z_1^2+z_2^2+1)\mu_2^2+\mu_3^2-2(z_1\nu+1)\mu_1\mu_2+2\mu_1\mu_3-2\mu_2\mu_3\\
+         &\leq(\nu^2+z_1\nu+3)\mu_1^2+(z_1^2+z_2^2+z_1\nu+3)\mu_2^2+3\mu_3^2\\
+         &\leq32.8901\mu_1^2+346.6614\mu_2^2+3\mu_3^2\\
+         &\leq18.6188^2\| x+s\|^2.
+        \end{align*}
+       因此取$l_2=18.6188$, 可使得$\| f(x)+f(s)\|\leq l_2\| x+s\|$. 综上所述, $f(\cdot)$属于函数类$L(l_1,l_2)$.
+
+        选取$c=12, \theta=0.8, \tau=2.8$, 那么对所有$u\in S$, $\epsilon I-c\theta\alpha L(u)-c\alpha\tau D(u)<0$. 即\autoref{themcon} 和\autoref{thm:qn} 的条件成立. 取$\delta=0.05$, $a=b=0.2$, 通过计算可得$\omega=0.2$.
+
+        利用欧拉法, 取步长为$0.01$, 区间为$[0,10]$. 通过MATLAB求解微分方程 \eqref{simulate} 并画出相应的变化图, 见.
+
+        \autoref{numcrule1}-\autoref{numdrule2} 展示了在四种激发规则下, 节点状态向量轨道$x^j_i(t)(i=1,2,\cdots,5,j=1,2,3)$的变化情况. 从图中可以看出, 所有节点的状态都趋于同步. 因此本文提出的激发规则是有效的.
+\begin{figure}[!htb]
+\begin{minipage}[t]{0.48\linewidth}
+\centering
+\includegraphics[width=3.2in]{nonlinear/state2223.jpg}
+\caption{在连续情形激发规则CRS下, 网络节点状态向量$x^j_i(t)(i=1,2,\cdots,100,j=1,2,3)$和目标轨道$s^j(t)(j=1,2,3)$随时间变化情况.}\label{numcrule1}
+\end{minipage}~~
+\begin{minipage}[t]{0.48\linewidth}
+\centering
+\includegraphics[width=3.2in]{nonlinear/state1612.jpg}
+\caption{在连续情形激发规则CRE下, 网络节点状态向量$x^j_i(t)(i=1,2,\cdots,100,j=1,2,3)$和目标轨道$s^j(t)(j=1,2,3)$随时间变化情况.}\label{numcrule2}
+\end{minipage}
+\end{figure}
+
+\begin{figure}[!htb]
+\begin{minipage}[t]{0.48\linewidth}
+\centering
+\includegraphics[width=3.2in]{nonlinear/dstateoneand2212.jpg}
+\caption{在离散情形激发规则DRS下, 网络节点状态向量$x^j_i(t)(i=1,2,\cdots,100,j=1,2,3)$和目标轨道$s^j(t)(j=1,2,3)$随时间变化情况.}\label{numdrule1}
+\end{minipage}~~
+\begin{minipage}[t]{0.48\linewidth}
+\centering
+\includegraphics[width=3.2in]{nonlinear/dstatedata3840.jpg}
+\caption{在离散情形激发规则DRE下, 网络节点状态向量$x^j_i(t)(i=1,2,\cdots,100,j=1,2,3)$和目标轨道$s^j(t)(j=1,2,3)$随时间变化情况.}\label{numdrule2}
+\end{minipage}
+\end{figure}
+
+        为了更好的比较四种激发规则的性能, 下面画出不同激发规则下的网络系统总同步误差, 其定义为如下:
+        $$E(t)=\sqrt{\sum_{i=1}^{100}\sum_{j=1}^3(x_i^j(t)-s^j(t))^2}. $$
+
+        \ref{Totallerror1} shows that the time evolution of synchronization errors based on CRS and CRE. In this figure, we can see the total synchronization error under event-triggered rules CRS and CRE decreases very fast and approximatively reduces to zero in a short time.
+        And the synchronization error under the event-triggered rule CRS has more faster convergence speed than CRE. The main reason is that the event-triggered rule CRS is based on synchronous error upper bound, which will automatically adjust the triggered frequency according to the error variation, yet the event-triggered rule CRE is based on a fixed exponential function upper bound whose parameters $a$ and $b$ are predefined.
+
+
+
+        As shown in Fig.\ref{derror}, the exponential synchronization can be achieve based on DRS and DRE.
+        In this figure, the synchronous speed based on DRS is faster than DRE. The reason is similar as the continuous monitoring case.
+
+        From Fig.\ref{error}, we can find that synchronous speed based on continuous monitoring is faster than discrete monitoring under the same upper bound, namely, CRS$>$DRS and CRE$>$DRE, which is consistent with TABLE \ref{table11}.
+
+        Furthermore, we compare event-triggered times and the convergence speed of Lyapunov-Krasovskii function $V(t,e(t))$ under four event-triggered rules.
+        According to Fig.\ref{trinum}, comparatively speaking, the events-triggered times of nodes in the discrete monitoring strategy is much more than the continuous monitoring strategy, and the events-triggered times for synchronous error upper bound is larger than exponential upper bound, namely, DRS$>$DRE$>$CRS$>$CRE, which is consistent with TABLE \ref{table11}. In addition, the order of convergence speed of Lyapunov-Krasovskii function $V(t,e(t))$  is CRS$>$DRS$>$CRE$>$DRE.
+
+
+        %Further, it can be seen from Fig. 8 that the rules (13) and (25) have higher convergence rates than (14) and (26) and close to the original coupled system with simultaneous diffusion and pinning, as a reward of high event frequency of updating diffusion and pinning terms, as shown in Figs.9(a)-9(b).
+
+        In order to depict the influence of coupling strength and control strength on synchronous speed, we select four different coupling strength and control strength to drive the networks (\ref{simulate}) to achieve synchronization under four different event-triggered rules. As is show in the Fig.\ref{diffstrength}, the greater coupling strength and control strength, the faster the total error convergence speed is. For example, based on CRS, when $c=18$ and $\tau=10$, the synchronization time only need $1$ second,  and when $c=8$ and $\tau=5$, the synchronization time need $7$ seconds. Based on DRS, when $c=18$ and $\tau=10$, the synchronization time only need $3$ seconds,  and when $c=8$ and $\tau=5$, the synchronization time need $7.5$ seconds.
+
+\begin{figure}[!htb]
+\begin{minipage}[t]{0.48\linewidth}
+\centering
+\includegraphics[width=3.2in]{nonlinear/Totallerror1.eps}
+\caption{在连续情形激发规则CRS和激发规则CRE下, 网络总误差轨道$E(t)$随时间变化情况.}\label{Totallerror1}
+\end{minipage}~~
+\begin{minipage}[t]{0.48\linewidth}
+\centering
+\includegraphics[width=3.2in]{nonlinear/Totallerror2.eps}
+\caption{在离散情形激发规则DRS和激发规则DRE下, 网络总误差轨道$E(t)$随时间变化情况.}\label{Totallerror2}
+\end{minipage}
+\end{figure}
+\begin{figure}[!htb]
+\begin{minipage}[t]{0.48\linewidth}
+\centering
+\includegraphics[width=3.2in]{nonlinear/triggertime.eps}
+\caption{连续情形和离散情形四种激发规则每个节点平均激发次数.}\label{tritime}
+\end{minipage}~~
+\begin{minipage}[t]{0.48\linewidth}
+\centering
+\includegraphics[width=3.2in]{nonlinear/Vt.eps}
+\caption{Lyapunov-Krasovskii函数$V(t)$.}\label{Vt}
+\end{minipage}
+\end{figure}
+\section{Conclusion}\label{conclusion}
+    In this paper, we have investigated the exponential synchronization problem in a new array of nonlinearly stochastic coupled networks by employing event-triggered pinning control strategies. In order to describe the stochastic influence of external environment on the information transmission process, we have defined two sequences of random variables to depict random occurring coupling and random coupling strength, and introduced a continuous-time homogeneous Markov chain to modulate the coupling structure and pinned nodes sets. We have proposed four different event-triggered pinning strategies: two continuous monitoring and two discrete-time monitoring schemes. By designing four different event-triggered rules, constructing a stochastic Lyapunov-Krasovskii function, utilizing the properties of stochastic processes and some linear matrix inequalities, we have derived the synchronization criteria, which can be lightly inspected by using standard numerical software. The four event-triggered rules are shown to perform well by simulations. We also illustrate the characteristic and application scope of different rules. Finally, we give the effects of parameters of coupling strength and control gain on  synchronous speed by simulations.
+    In practical application, event-triggered control strategies may be applied to research the synchronization of the all-to-all connected oscillators. And this approach would serve as a vital step for the event-triggered synchronization of power networks.
+
+

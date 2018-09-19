@@ -1,0 +1,35 @@
+%%!Mode:: "Tex:UTF-8"
+\begin{abstract}
+\vspace{4ex}
+复杂网络的同步现象是一种具有代表性的群体行为. 近十多年来, 复杂网络同步问题被广泛研究. 然而, 大多数同步结果都是建立在连续通讯模式下, 即网络节点间的信息状态实时更新和传递. 这不仅导致不必要的带宽和能量消耗, 同时也增加网络的通信负载和降低网络的抗干扰能力. 因此考虑离散模式的采样策略具有更加实际的意义.
+
+本学位论文基于事件激发采样策略研究随机环境中马氏耦合复杂网络的同步问题. 本文主要内容包括以下几个方面:
+
+首先, 基于分散式事件激发采样策略, 我研究了非线性和随机耦合复杂网络均方指数同步问题. 该网络模型的随机性主要体现在两个方面: 1) Bernoulli随机变量和正态随机变量分别刻画随机发生耦合和随机耦合强度; 2) 网络的耦合结构和控制节点集受马氏链的调制. 为了减少能量消耗和降低通讯负荷, 我分别在连续监控和离散监控两种情形下, 设计两种基于不同误差上界的分散式事件激发规则. 根据Lyapunov 稳定性理论、随机过程理论以及Gronwall-Bellman 不等式得到复杂网络达到均方指数同步的充分条件. 通过一个数值仿真的例子, 揭示了理论结果的有效性, 并对四种不同激发规则下的同步速度和激发频率等进行比较.
+
+接着, 基于集中式事件激发采样策略, 我对带有时滞与部分未知转移率的马氏耦合复杂网络同步问题进行研究. 在该网络模型中, 我选用动态调整的参考节点作为网络的同步目标, 并采用随机发生的控制方法, 对网络的节点以概率$p$ 进行随机控制. 通过构造新的随机Lyapunov-Krasovskii 函数, 基于随机过程理论、Lyapunov 稳定性理论、以及Halanay 不等式得出同步的充分条件. 同时, 我也给出了相邻事件激发时刻间隔的下界, 从而保证Zeno 现象不会发生. 本章最后给出的数值仿真例子证实了理论结果的有效性.
+
+最后, 我分别在分散式和集中式事件激发采样策略下研究了带有噪声干扰的复杂网络同步问题. 不同于自身节点动力学的噪声, 我所考虑的是信号传输过程中的噪声, 该噪声运用布朗运动来进行模拟. 根据测量误差和同步误差, 我分别设计集中式和分散式事件激发规则. 通过利用稳定性理论和伊藤—德布林公式, 推导出在分散式和集中式事件激发规则下网络能够实现同步的条件. 通过一个数值仿真的例子, 证实了同步条件是充分有效性的.
+
+\vspace{4ex}
+\keywords{同步; 事件激发策略; 马氏链; 部分转移率未知; 布朗运动}
+
+\end{abstract}
+
+\begin{englishabstract}
+\vspace{4ex}
+The synchronization phenomenon of the complex networks is a typical cluster behavior. In resent decades, the problem of synchronization of the complex networks has been investigated widely. However, almost of the results about synchronization are built upon the continuous communication model.  Namely, the information between the nodes in the network is updated and transmitted immediately, which lead to unnecessary bandwidth and energy consumption, increase the communication load of the network and decrease the network anti-jamming ability. So, considering the discrete sampling strategy is more practical significance.
+
+This thesis mainly discusses how to construct a suitable event-triggered rule and corresponding control method to achieve synchronization of complex networks with Markov switching in random environment. The main work includes the following aspects:
+
+本学位论文主要研究基于事件激发采样策略随机环境中马氏耦合复杂网络的同步问题. 本文主要内容包括以下几个方面:
+
+Firstly, the mean square exponential synchronization issue of complex networks with Markov switching nonlinear and randomly occurring coupling and random coupling strength is studied. Bernoulli random variables sequence and normal random variables sequence are introduced to depict the random occurring coupling and random coupling strength. In order to reduce the frequency of communication between the nodes and the update of the controller, Two different decentralized event-triggered rules base on synchronization error upper bound and exponential upper bound are proposed in the continuous monitoring and discrete monitoring. The key nodes are pinned to prompt the networks realizing synchronization by using control method with decentralized event-triggered sample strategy and pinning control. According to Lyapunov stability theory, the stochastic process theory and Gronwall-Bellman inequality, the sufficient conditions of mean square exponential synchronization are derived. In the numerical example part, it is not only confirm the synchronization conditions are valid vote, but also compare the differences about four different rules in the synchronous speed and triggered frequency.
+
+Secondly, I study exponential synchronization problems for an array of Markovian jump delayed complex networks with partially unknown transition rates. In the network's model, the coupling relationship between the nodes not only switch in finite mode, but also the switching probability is partially unknown, and the node's dynamic behavior is time-delay. In addition, the synchronization trajectory is dynamically adjusted. To impel the array complex networks to achieve exponential synchronization, a new randomly occurring event-triggered control strategy is proposed with the probability $p$ base on centralized event-triggered sample strategy. By constructing a novel stochastic Lyapunov-Krasovskii function, some exponential synchronization criteria are obtained in terms of LMIs and famous Halanay inequality. Furthermore, I obtain a positive lower bound of the event intervals which can exclude the Zeno behaviors in event-triggered sample strategy. The numerical simulation shows that the event-triggered sample control strategy can achieve synchronization rapidly and there has obvious gap between two event-triggered moment.
+
+Finally, the issue of synchronization of complex networks perturbed by stochastic noise is researched further base on partially unknown transition rates. The stochastic noise appear in the signal transmission process between the nodes rather than the node's dynamics which is produced by the Brownian movement. According to the measurement error and synchronization error, the centralized and decentralized event-triggered rules are provided. By using stability theory and inequalities of stochastic integral, some exponential synchronization criteria are obtained. A simulation example is provided to demonstrate the effectiveness of the theoretical results.
+
+\vspace{4ex}
+\englishkeywords{Synchronization; Event-Triggered Strategy; Markov Chain; Partially Unknown Transition Rates; Brownian Movement}
+\end{englishabstract}

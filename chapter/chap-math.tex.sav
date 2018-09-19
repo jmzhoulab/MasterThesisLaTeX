@@ -1,0 +1,170 @@
+%%!Mode:: "Tex:UTF-8"
+\chapter{预备知识}\label{chap:math}
+\section{复杂网络的理论和模型}
+        网络是一类描述自然系统和人工系统的模型. 一个网络是具有一定特定功能群体. 其中每个个体都具有自己的动力学行为, 而个体间存在着相互的联系和影响. 这种联系和影响可以利用图论来描述: 网络的个体可以看作图的节点, 个体之间的联系和影响可以用图的边来表示. 网络节点的状态不仅取决于自身动力学的特性, 而且受到与之有联系节点的影响.
+        复杂网络是具有大规模节点和复杂的连接拓扑结构的网络. 其复杂性包括两个方面, 一方面是节点的动力学行为, 它既可以是线性有序的动力学行为, 也可以是非线性或者时空混沌动力学行为; 另一方面是复杂的拓扑结构, 主要体现为时滞拓扑、切换拓扑、时变拓扑、以及噪声干扰的拓扑相混合而成的拓扑结构.
+
+        一个由$N$个$n$维状态恒同节点组成的线性耦合复杂网络模型为:
+        \begin{align*}
+           \dot{x}_{i}(t)=f(t,x_{i}(t))-c\sum^N_{j=1}l_{ij}\Gamma[x_{j}(t)-x_{i}(t)], \quad i = 1,\cdots,N,
+        \end{align*}
+        其中$x_i(t)=(x_{i}^{1}(t),x_{i}^{2}(t),\cdots,x_{i}^{n}(t))^{\top}\in R^{n}$是第$i$个节点在时刻$t$的$n$维状态向量; 连续映射$f(\cdot,\cdot): R\times R^n\mapsto R^n$是节点自身动力学特性; $L=(l_{ij})_{N\times N}$是网络的耦合矩阵, 其中$l_{ij}$表示节点$j$与节点$i$之间的影响权重, 如果点$j$与节点$i$ 有关联, 即网络拓扑图存在边, 则$l_{ij}=l_{ji}\leq 0$, 否则$l_{ij}=l_{ji}=0$, 其中$l_{ii}=-\sum_{j=1,j\neq i}^N l_{ij}$, $c$ 是网络节点间的耦合强度; $\Gamma=$diag$\{\gamma_{1},\gamma_{2},\cdots,\gamma_{n}\}$是内耦合矩阵, 描述节点$n$个状态之间的相互作用.
+
+        在现实生活中, 很多网络系统通过自身节点间的调节很难达到同步. 因此需要人为地加入适当的控制. 此外网络系统的耦合关系常常会因所处环境的变化而变化. 本文主要利用事件激发采样控制方法研究带有切换拓扑的复杂网络同步问题. 一般的网络模型如下:
+        \begin{align}\label{eventcontrolnetwork}
+           \nonumber \dot{x}_{i}(t)&=f(t,x_{i}(t))-c\sum^N_{j=1}l_{ij}(r_{t})\Gamma[x_{j}(t_k)-x_{i}(t_{k})]+u_i(t),\\
+            &\quad\quad t_{k}\leq t< t_{k+1}, \quad i = 1,\cdots,N,
+        \end{align}
+        其中$\{r_{t},t\geq 0\}$是有限状态空间齐次马尔可夫链; $\{t_{1},t_{2},\cdots \}$是严格递增的事件激发时刻序列; $u_i(t)$是网络控制输入.
+        \begin{defn}\label{defn1}%\upcite{nonl-asym}
+            如果一个网络系统对于任何的初始值$x_i(0), i=1,2,\cdots,N$, 以及任意两个节点$x_i(t),x_j(t)$满足\
+                $$ \lim_{t\rightarrow\infty}\mathrm{E}\|x_i(t)-x_j(t)\|=0, i,j=1,\cdots N,$$
+            则称该网络系统在均方意义下能够达到同步, 简称\textbf{均方同步};
+            如果存在两个正数$\delta$和$M$, 使得
+            $$\mathrm{E}\|x_i(t)-x_j(t)\|^2\leq Me^{-\delta t}, , i,j=1,\cdots N.$$
+            则称该网络系统在均方意义下能够达到指数同步, 简称\textbf{均方指数同步}.
+        \end{defn}
+    \begin{rem}
+    从\autoref{defn1} 可以看出, 均方指数同步是网络中任意两个节点的所有状态向量之差的范数平方的期望指数递减于零, 它是均方同步的一种特殊情况.
+    \end{rem}
+\section{随机过程理论}
+    随机过程(Stochastic Process)是一连串随机事件动态关系的定量描述. 随机过程论与其他数学、物理分支如位势论、微分方程、复变函数论、力学等有密切的联系, 是在自然科学、工程科学及社会科学各领域研究随机现象的重要工具. 本文主要利用随机过程论中的马尔可夫链和布朗运动相关理论去研究复杂网络的微分动力学系统.
+
+    {\bf 马尔可夫过程:} 考察一个随机过程，若己知现在$t_0$的状态$X(t_0)$, 那么将来的状态$X(t)(t>t_0)$取值(或取某些状态)的概率与过去状态$X(s)(s<t_0)$取值无关, 或更简单的说, 己知现在, 将来与过去无关(条件独立), 则称此性质为马尔可夫性(无后效性或简称马氏性). 具有这种马尔可夫性的过程称为马尔可夫过程. 马尔可夫过程可以用来描述网络系统处于不同外在环境时耦合结构的切换过程.
+    \begin{defn}\upcite{stoprocc}
+           设状态空间$S=\{1,2,3,\cdots\}$, 随机过程$\{r(t), t\geq0\}$对于任意$0\leq t_0<t_1<\cdots<t_n<t_{n+1}$, $i_k\in S$, $0\leq k\leq n+1$, 若$P\{r(t_0)=i_0,r(t_1)=i_1,\cdots,r(t_n)=i_n\}>0$, 就有
+           \begin{align*}
+                P\{r(t_{n+1})=i_{n+1}|r(t_0)=i_0,r(t_1)=i_1,\cdots,r(t_n)=i_n\}=P\{r(t_{n+1})=i_{n+1}|r(t_n)=i_n\}
+            \end{align*}
+            则称$\{r(t), t\geq0\}$为连续参数马尔可夫链(简称连续参数马氏链). 若对于任意$s,t\geq0,i,j\in S$, 有
+            \begin{align*}
+                P\{r(s+t)=j|r(s)=i\}=P\{r(t)=j|r(0)=i\}=p_{ij}(t).
+            \end{align*}
+            则称$\{r(t), t\geq0\}$为齐次马尔可夫链, 称$P=(p_{ij}(t))(i,j\in S)$为转移概率矩阵. 本文仅考虑有限状态空间的齐次马尔可夫链.
+    \end{defn}
+    \begin{lem}{\rm\upcite{stoprocc}}
+            当$S$为有限状态空间时, $\forall i, j\in S, i\neq j$, 极限
+            \begin{align*}
+                q_{ii}\triangleq\lim_{t\rightarrow0}\frac{1-p_{ii}(t)}{t},\quad q_{ij}\triangleq p'_{ij}(0)=\lim_{t\rightarrow0}\frac{p_{ij}(t)}{t}.
+            \end{align*}
+            存在且有限, 并且有$q_{ii}=-\sum_{j\neq i}q_{ij}$. 称$Q=(q_{ij})$为$\{r(t), t\geq0\}$的转移率矩阵, 或称密度矩阵.
+    \end{lem}
+
+    部分未知转移率的马尔可夫链的转移矩阵具有如下形式:
+        $$
+        \left(
+                \begin{array}{ccccc}
+                q_{11} &q_{12} &\cdots &? \\
+                ? &? &\cdots &q_{2m} \\
+                \vdots &\vdots &\ddots &\vdots \\
+                q_{m1} &? &\cdots &q_{mm} \\
+                \end{array}
+            \right),
+        $$
+        这里$"?"$代表未知的转移率. 为了记号上方便, 对任意$u\in S$, 记$S=S^u_1\cup S^u_2$, 其中$S^u_1=\{v| q_{uv} \text{是已知的}\}$, $S^u_2=\{v| q_{uv} \text{是未知的}\}$.
+
+    {\bf 布朗运动:} 是微小粒子表现出的无规则运动, $1827$年英国植物学家R.布朗在花粉颗粒的水溶液中观察到花粉不停顿的无规则运动. 进一步实验证实, 不仅花粉颗粒, 其他悬浮在流体中的微粒也表现出这种无规则运动, 如悬浮在空气中的尘埃. 后人就把这种微粒的运动称之为布朗运动.
+    \begin{defn}\upcite{stoprocc}
+          设随机过程$X(t), t\geq0$满足:
+
+          (1) $X(t)$是独立增量过程;
+
+          (2) $\forall s,t>0, X(s+t)-X(s)\sim N(0,c^2t)$, 即$X(s+t)-X(s)$是期望为$0$, 方差为$c^2t$的正态分布;
+
+          (3) $X(t)$ 关于$t$是连续函数.\\
+          则称$X(t), t\geq0$是布朗运动或维纳过程(Wiener process).
+    \end{defn}
+当$c=1$时, 称$X(t), t\geq0$是标准布朗运动, 此时若$X(s)=0$, 则$X(t)\sim N(0,t)$.
+    \begin{defn}[伊藤过程]{\rm\upcite{yitengprocc}}\label{yitengdefn}
+          设$W(t), t\geq0$是布朗运动, $\mathcal{F}, t\geq0$是相应的域流. 伊藤过程是如下形式的随机过程:
+          $$X(t)=X(0)+\int_0^t\Delta(u)dW(u)+\int_0^t\Theta(u)dW(u),$$
+          其中$X(0)$非随机, $\Delta(u), \Theta(u)$是适应的随机过程.
+    \end{defn}
+    \begin{lem}[伊藤——德布林公式]{\rm\upcite{yitengprocc}}\label{yitformula}
+           设$X(t), t\geq0$是定义$\ref{yitengdefn}$ 中描述的伊藤过程, 函数$f(t,x)$的偏导数$f_t(t,x)$, $f_x(t,x)$和$f_{xx}(t,x)$都有定义并且连续, 则对于每一个$T\geq0$, 有:
+            \begin{align*}
+                f(T,X(T))&=f(0,X(0))+\int_0^Tf_t(t,X(t))dt+\int_0^Tf_x(t,X(t))\Delta(t)dW(t)\\
+                &\quad+\int_0^Tf_x(t,X(t))\Theta(t)dt+\frac{1}{2}\int_0^Tf_{xx}(t,X(t))\Delta^2(t)dt.
+            \end{align*}
+    \end{lem}
+    \begin{rem}
+        \autoref{yitformula} 是以精确的数学语言叙述的. 公式右端每一项都有确切的含义, 第一项是非随机, 第三项是一个伊藤积分之和, 其余三项是关于时间变量的勒贝格积分.
+    \end{rem}
+    将上述伊藤——德布林公式写成微分形式记法如下:
+    \begin{align*}
+                df(t,X(t))&=f_t(t,X(t))dt+f_x(t,X(t))\Delta(t)dW(t)\\
+                &\quad+f_x(t,X(t))\Theta(t)dt+\frac{1}{2}f_{xx}(t,X(t))\Delta^2(t)dt.
+    \end{align*}
+
+\section{相关定义、引理}
+    {\bf 符合说明:} 如果没有特殊说明, 则在文中$I_n$表示$n$阶单位矩阵, $0$表示具有适当维数的零矩阵; $\lambda_1(A),\lambda_2(A),\cdots\lambda_n(A)$是$n$阶矩阵$A$ 的特征根, 若所有的特征根均为实数, 不妨将其排序为: $\lambda_1(A)\leq\lambda_2(A)\leq\cdots\leq\lambda_n(A)$; $x^\top$记作向量$x$的转置, $\|x\|$ 记作向量$ x$ 欧几里得范数; $\mathbf{1}_n$记作元素全部是$1$的$n$维向量; 符号$\mathrm{E}$表示数学期望, 符号$\otimes$表示Kronecker积.
+    \begin{defn}\upcite{clusyn}\label{quad}
+        称函数$f(\cdot): R^n\mapsto R^n$满足$QUAD$条件, 记作$f\in QUAD(G,\Delta,\xi)$, 如果存在两个正定对角阵$G=\text{diag}\{g_1,g_2,\cdots,g_n\}$, $\Delta=\text{diag}\{\delta_1,\delta_2,\cdots,\delta_n\}$和一个正数$\xi$, 使得对任意$x,y\in R^n$, 有
+        $$(x-y)^\top G[f(x)-f(y)-\Delta(x-y)]\leq-\xi(x-y)^\top G(x-y).$$
+    \end{defn}
+    \begin{defn}\label{lipuxici}
+        称函数$f(\cdot): R^n\mapsto R^n$属于函数类$L(l_{1},l_2)$, 记作$f(\cdot)\in L(l_{1},l_2)$, 如果存在两个正数$l_{1}$和$l_2$, 使得对任意$x,y\in R^n$, 有
+        \begin{align*}
+            \| f(x)-f(y)\|\leq l_{1}\| x-y\|,\\
+            \| f(x)+f(y)\|\leq l_{2}\| x+y\|.
+        \end{align*}
+        称函数$g(\cdot): R^n\mapsto R^n$属于函数类$C(\sigma)$, 记作$g(\cdot)\in C(\sigma)$, 如果存在非零常数$\sigma$, 使得对任意$x,y\in R^n$, 有
+        \begin{align*}
+            (x-y)^\top(g(x)-g(y))\geq \sigma(x-y)^\top(x-y).
+        \end{align*}
+    \end{defn}
+    事实上, 现实存在的很多混沌系统, 比如洛伦兹系统, 陈氏系统, L$\ddot{u}$ 系统和 Chua's 电路系统, 他们的自身动力学函数都满足\autoref{quad} 和\autoref{lipuxici}.
+    \begin{lem}\label{lem:1}{\rm\upcite{Kronecker}}
+        设$A,B,C$和$D$是具有合适维数的矩阵, 则下面性质成立:
+        \begin{align*}
+            \left\{
+            \begin{aligned}
+            &(aA)\otimes B=A\otimes(aB);\\
+            &(A+B)\otimes C=A\otimes C+B\otimes C;\\
+            &(A\otimes B)(C\otimes D)=(AC)\otimes (BD);
+            \end{aligned}
+            \right.
+            \end{align*}
+        其中$a$是常数.
+    \end{lem}
+    \begin{lem}\label{lem:2}{\rm\upcite{Kronecker}}
+        设矩阵$A\in R^{n\times n}$, $B\in R^{m\times m}$是对称矩阵, 则对任意$x\in R^{nm}$, 有
+        \begin{align*}
+            \lambda_{1}(A)\cdot\lambda_{1}(B)x^{\top}x\leq x^{\top}(A\otimes B)x\leq \lambda_{n}(A)\cdot\lambda_{m}(B)x^{\top}x.
+        \end{align*}
+    \end{lem}
+    \begin{lem}{\rm\upcite{leq}}\label{lem_leq}
+           设$x$, $y$是$n$维向量, 则对任意$n$阶半正定矩阵$P$以及任意常数$\mu>0$, 有
+            \begin{align*}
+            2x^{\top}Py\leq\mu x^{\top}Px+\frac{1}{\mu}y^{\top}Py
+            \end{align*}
+    \end{lem}
+
+    \begin{lem}[Lyapunov稳定性定理]\label{lem:lyapunov}
+        设$x=0$是非线性系统：
+        \begin{equation*}
+          \dot{x}=f(x), \quad f(0)=0
+        \end{equation*}
+        $($其中$x \in R^n$, $f:D \in R^n \rightarrow R^n$满足局部Lipschitz条件$)$
+        的平衡点, $D \in R^n$是包含原点的定义域. 设$V(x):D \rightarrow R^{+}$
+        是连续可微的函数, 如果
+        \begin{align*}
+          &V(0)=0;\\
+          &V(x)>0,\quad x \in D-\{0\};\\
+          &\dot{V}(x) \leq 0,\quad x \in D;
+        \end{align*}
+        那么, 平衡点$x=0$是稳定的. 特别的, 如果
+            $$\dot{V}(x) < 0, \quad x \in D, $$
+         那么, 平衡点$x=0$是渐近稳定的.
+    \end{lem}
+\begin{lem}[Lyapunov-Krasovskii稳定性定理]\label{lem:lyapunov}
+考虑时滞微分方程
+\begin{equation*}
+    \dot{x}(t)=f(t,x(t))
+\end{equation*}
+这里$f:R\times C\mapsto R^{n}$是一个连续函数, 同时将$R\times C$的一个有界子集映射到一个$R^{n}$的有界子集, 令$u, v, w:R^{+}\mapsto R^{+}$是连续并且严格单调非减函数, 满足当$s>0, u(s), v(s), w(s)$为正, 同时有$u(0)=v(0)=0$. 如果存在一个连续函数$V:R\times C\mapsto R$使得
+$$u(\parallel x\parallel)\leq V(t,x)\leq v(\parallel x\parallel)$$
+和
+$$V(t, x(t, x(t)))\leq-w(\parallel x(t)\parallel)$$
+成立, 这里$\dot{V}$是$V$沿着上述时滞微分方程解的导数, 那么这个方程的解$x=0$就是一致渐近稳定的. 这个函数$V$被称之为$\mathrm{Lyapunov-Krasovskii}$函数.
+\end{lem}

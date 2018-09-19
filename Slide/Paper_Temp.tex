@@ -1,0 +1,225 @@
+%%
+%%   Author: Jingyi Wang
+%%
+\documentclass[1p]{elsarticle}
+\usepackage[
+    pdfpagemode=FullScreen,
+    CJKbookmarks=true,
+    colorlinks=true,
+    pdfborder={0 0 0}]{hyperref}
+\usepackage{amsthm,amssymb,amsmath}
+\usepackage{graphicx,tikz}
+\usepackage{subfigure,layout}
+\usepackage{listings, Sweave}
+\usepackage{CJK}
+%\usepackage{pxfonts,courier}
+\usepackage[right,modulo]{lineno}
+\usepackage{pgfplots}
+\usepackage{color}
+\def\lstlistingname{Algorithm}
+\def\figurename{Figure}
+\def\refname{}
+\usepackage{shorttoc}
+
+%%
+%% the theorems definitions
+%%
+\theoremstyle{definition}
+    \newtheorem{defn}{Definition}
+    \newtheorem{lem}{Lemma}
+    \newtheorem{hyp}{Hypothesis}
+    \newtheorem{thm}{Theorem}
+    \newtheorem{cor}{Corollary}
+    \newtheorem{prop}{Proposition}
+    \newtheorem{rem}{Remark}
+    \newtheorem{case}{Case}
+%%
+%% Listings Package settings
+%%
+%\lstset{frame=single,
+%	    basicstyle=\ttfamily\small,
+%        captionpos=b,
+%        numbers=right,
+%        numberstyle=\tiny,
+%        showstringspaces=false}
+
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{ %
+  language=Octave,                % the language of the code
+  basicstyle=\ttfamily\small,           % the size of the fonts that are used for the code
+  numbers=right,                   % where to put the line-numbers
+  numberstyle=\tiny\color{gray},  % the style that is used for the line-numbers
+  stepnumber=1,                   % the step between two line-numbers. If it's 1, each line
+                                  % will be numbered
+  numbersep=5pt,                  % how far the line-numbers are from the code
+  backgroundcolor=\color{white},      % choose the background color. You must add \usepackage{color}
+  showspaces=false,               % show spaces adding particular underscores
+  showstringspaces=false,         % underline spaces within strings
+  showtabs=false,                 % show tabs within strings adding particular underscores
+  frame=single,                   % adds a frame around the code
+  rulecolor=\color{black},        % if not set, the frame-color may be changed on line-breaks within not-black text (e.g.commens (green here))
+  tabsize=2,                      % sets default tabsize to 2 spaces
+  captionpos=b,                   % sets the caption-position to bottom
+  breaklines=true,                % sets automatic line breaking
+  breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+  title=\lstname,                   % show the filename of files included with \lstinputlisting;
+                                  % also try caption instead of title
+  keywordstyle=\color{blue}\bfseries,          % keyword style
+  commentstyle=\color{dkgreen},       % comment style
+  stringstyle=\color{mauve},         % string literal style
+  escapeinside={\%*}{*)},            % if you want to add a comment within your code
+  morekeywords={*,...}               % if you want to add more keywords to the set
+}
+%%
+%% Jingyi Wang's settings
+%%
+\allowdisplaybreaks
+%\journal{20110608}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+%%
+%% Linux Chinese font
+%%
+%%\begin{CJK*}{UTF8}{nsung}
+%%
+%% Windows Chinese font
+%%
+\begin{CJK*}{GBK}{song}
+%\CJKtilde
+%\CJKcaption{GB}
+%% Information of the Paper.
+%%
+\begin{frontmatter}
+\title{基于牵制控制的两类非线性耦合复杂网络簇同步研究}
+
+\author{王劲毅}
+
+\begin{abstract}
+In this paper,
+\end{abstract}
+\begin{keyword}
+Template \sep  \TeX
+\end{keyword}
+\end{frontmatter}
+%\begin{center}
+%  王劲毅
+%~\\~~\\~
+%  指导老师：丰建文
+%~\\~~\\~~\\~
+%
+% \large{应用数学专业硕士论文答辩,深圳大学~~2012-5-25}
+%\end{center}
+
+\newpage
+
+\newpage
+
+
+%%
+%% Contents of the Paper.
+%%
+%\tableofcontents
+\shorttableofcontents{目录}{1}
+%%
+%% Start line numbering here if you want
+%%
+% \linenumbers
+%%
+%% Main Text
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\layout
+\newpage
+\section{引言}
+
+
+\newpage
+\subsection{复杂网络简述}
+
+\newpage
+\subsection{复杂网络同步与簇同步简述}
+
+
+\newpage
+\subsection{复杂网络簇同步的研究进展简述}
+
+
+
+\newpage
+\section{基于牵制非线性耦合复杂网络簇同步}
+\subsection{网络数学模型}
+
+\newpage
+\subsection{簇同步理论分析}
+\newpage
+\subsection{自适应控制的簇同步分析}
+\newpage
+\subsection{数值模拟}
+
+\newpage
+\section{基于牵制非线性耦合非恒同复杂网络簇同步}
+\subsection{网络数学模型}
+
+\newpage
+\subsection{簇同步理论分析}
+
+\newpage
+\subsection{自适应控制的簇同步分析}
+
+\newpage
+\subsection{数值模拟}
+
+\newpage
+\section{结束语}
+ssssssssssssss
+
+\newpage
+\section{致谢}
+ssssssssssss
+
+\newpage
+\section*{攻读硕士学位期间的研究成果}
+\footnotesize{
+
+\renewcommand{\labelenumi}{[\arabic{enumi}]}
+\begin{enumerate}
+\item \textbf{Jingyi~Wang}, Jianwen~Feng, Chen~Xu, Yi Zhao:
+        Cluster synchronization of nonlinearly-coupled complex networks with nonidentical nodes and asymmetrical
+        coupling matrix, \emph{Nonlinear Dynamics}, (2012) 67:1635–1646. (SCI,EI)
+\item Jianwen~Feng, \textbf{Jingyi~Wang}, Chen Xu, Francis Austin:
+        Cluster Synchronization of Nonlinearly Coupled Complex Networks via Pinning Control,
+        \emph{Discrete Dynamics in Nature and Society}, Volume 2011, Article ID 262349, 23 pages. (SCI,EI)
+\item \textbf{Jingyi Wang}, Chen Xu, Jianwen Feng, Man Kam Kwong, Francis Austin:
+        Mean-square exponential synchronization of Markovian switching stochastic complex networks with time-varying
+        delays by pinning control. \emph{Abstract and Applied Analysis}. (SCI期刊Accepted)
+\item \textbf{Jingyi Wang},  Jianwen Feng,  Yi Zhao: Exponentially Synchronization of   Stochastic Complex Networks
+    with Time-varying Delays and Switching Topology via Pinning Control,
+    \emph{2011 Proceedings of Seventh International Conference on Computational Intelligence and Security},
+    CIS'2011:263-267.(EI)
+\item \textbf{Jingyi Wang}, Jianwen Feng, Yi Zhao: Adaptive Synchronization for Nonlinearly-Coupled Complex Network
+    with an Asymmetrical Coupling Matrix, \emph{2011 3rd International Conference on Computer Design and
+    Applications}, ICCDA 2011.
+\item Yi Zhao, Jianwen Feng, \textbf{Jingyi Wang}: On Cluster Synchronization for Linearly Coupled Complex Networks,
+\emph{2011 Proceedings of Seventh International Conference on Computational Intelligence and Security},
+CIS'2011:300-304.(EI)
+\item Yi Zhao, \textbf{Jingyi Wang}, Shaohui Sun: On Cluster Synchronization for Nonlinearly-Coupled Complex Network
+with Nonidentical Nodes, \emph{2011 3rd International Conference on Computer Design and Applications}, ICCDA 2011.
+\item Jianwen Feng, Shaohui Sun, Chen Xu, Yi Zhao, \textbf{Jingyi~Wang}:
+    The synchronization of general complex dynamical network via pinning control,
+   \emph{Nonlinear Dynamics}, (2012) 67:1623–1633. (SCI,EI)
+\end{enumerate}
+}
+\begin{thebibliography}{1}
+\end{thebibliography}
+
+\end{CJK*}
+\end{document}

@@ -1,0 +1,136 @@
+%%!Mode:: "Tex:UTF-8"
+\documentclass[notypeinfo,xelatex]{CASthesis}
+% 可选参数：
+% notypeinfo 取消扉页的LaTeX版本信息
+%
+% 下面三个选一个：
+% dvipdfm 使用 dvipdfm(x) 生成最终的 PDF 文档 (缺省设置）
+% dvips 使用 dvips 生成最终的 PS 文档
+% pdftex 使用 pdfLaTeX 生成最终的 PDF 文档
+
+% 设置图形文件的搜索路径
+\graphicspath{{figures/}}
+
+% 取消链接的颜色（黑白打印时）
+\hypersetup{colorlinks=false}
+
+% 小节标题靠左对齐
+\CTEXsetup[format+={\flushleft}]{section}
+\CTEXsetup[format+={\flushleft}]{subsection}
+%\titleformat{\chapter}[display]{}{\songti}{1em}{}
+\CTEXsetup[format+={\songti}]{section}
+\CTEXsetup[format+={\songti}]{subsection}
+%\usepackage{titletoc}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{bm}     %数学模式加粗 \bm{...}
+\usepackage{amsmath}
+\usepackage{subfigure}
+\usepackage{epstopdf}
+\usepackage{dsfont}     %空心数字 $\mathds{1}, \mathds{4}$
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+\usepackage{verbatim}
+\usepackage{amstext}  %在公式中插入文字 \text{...}
+%\usepackage[superscript]{cite}  %文献标号在上方, 无方括号
+\newcommand{\upcite}[1]{\textsuperscript{\textsuperscript{\cite{#1}}}}  %文献标号在上方, 有方括号
+%\usepackage[colorlinks,linkcolor=red,anchorcolor=blue,citecolor=green]{hyperref}%交叉引用的设置
+\CTEXsetup[number={\arabic{chapter}}]{chapter}
+%\newcommand{\kai}{\CJKfamily{kai}}
+\newcommand{\ML}{\MakeLowercase}
+
+
+\begin{document}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 封面部分
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  % 中文封面内容
+  \classification{0212}
+  \confidential{公开}
+  \UDC{519.2}
+  \serialnumber{01}
+\title{基于事件激发采样的随机环境中复杂网络同步问题研究}
+%\title{S\ML{ynchronous} I\ML{ssue of} C\ML{omplex} N\ML{etworks with} R\ML{andom} E\ML{nvironment base on} \protect\\ E\ML{vent-triggered} C\ML{ontrol} S\ML{trategy}}
+  \englishtitle{Event-triggered Control Strategy for Synchronous Issue of Complex Networks with Random Environment}
+  \titlepageone{基于事件激发采样的随机环境中复杂网络同步问题研究}
+  \titlepagetwo{}
+  \author{周家木}
+  \advisor{董海玲~副教授}
+  \advisorinstitute{}
+  \subject{周~家~木}
+  \major{统~计~学}
+  \submitdate{2017年4月}
+  \defenddate{2017年4月}
+  \institute{数学与统计学院}
+  %\school{深圳大学}
+  \schoolid{10590}
+  \degree{硕士}
+  \chairman{}
+
+  % 英文封面内容
+
+
+  % 封面
+  \maketitle
+
+  % 英文封面
+ % \makeenglishtitle
+
+\declare
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 前言部分
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frontmatter
+
+  % 摘要
+  \include{chapter/abstract}
+
+  % 目录
+\tableofcontents
+  % 表格目录
+  %\listoftables
+  % 插图目录
+  %\listoffigures
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 正文部分
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \mainmatter
+  \include{chapter/chap-intro}
+  \include{chapter/chap-math}
+  \include{chapter/chap-nolinear}
+  \include{chapter/chap-delay}
+  \include{chapter/chap-noise}
+  \include{chapter/chap-end}
+
+%  % 附录
+%  \appendix
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 附件部分
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\backmatter
+% \include{chapter/end}
+  % 参考文献
+  % 使用 BibTeX
+%\bibliography{bib/tex}
+
+  %\nocite{*}
+  % 不使用 BibTeX
+\include{chapter/bib}
+%\bibliography{References_Author_Brief}
+%\bibliographystyle{unsrt}
+
+
+  % 个人简历
+  %\include{chapter/resume}
+
+  % 致谢
+  \include{chapter/thanks}
+%
+%
+%  % 发表文章目录
+ \include{chapter/pub}
+\end{document}

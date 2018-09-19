@@ -1,0 +1,39 @@
+\let \CTEX@spaceChar \relax 
+\contentsline {chapter}{\CJKfamily {zhsong}摘\CTEX@spaceChar \CTEX@spaceChar 要}{i}{chapter*.1}
+\contentsline {chapter}{\tmspace +\thinmuskip {.1667em}{\LUCIDA Abstract}\tmspace +\thinmuskip {.1667em}}{iii}{chapter*.2}
+\contentsline {chapter}{\CJKfamily {zhsong}\relax \fontsize {22.08}{26.50}\selectfont 目\CTEX@spaceChar \CTEX@spaceChar 录}{v}{chapter*.3}
+\contentsline {chapter}{\numberline {第1章\hspace {0.3em}}引言}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}复杂网络的研究背景及意义}{1}{section.1.1}
+\contentsline {section}{\numberline {1.2}复杂网络同步控制及其研究现状}{3}{section.1.2}
+\contentsline {section}{\numberline {1.3}本文的主要工作及创新点}{5}{section.1.3}
+\contentsline {chapter}{\numberline {第2章\hspace {0.3em}}预备知识}{7}{chapter.2}
+\contentsline {section}{\numberline {2.1}复杂网络的理论和模型}{7}{section.2.1}
+\contentsline {section}{\numberline {2.2}随机过程理论}{8}{section.2.2}
+\contentsline {section}{\numberline {2.3}相关定义、引理}{10}{section.2.3}
+\contentsline {chapter}{\numberline {第3章\hspace {0.3em}}分散式事件激发采样下带马氏切换的非线性随机耦合网络同步问题}{13}{chapter.3}
+\contentsline {section}{\numberline {3.1}分散式事件激发采样的网络模型}{13}{section.3.1}
+\contentsline {section}{\numberline {3.2}分散式事件激发采样的复杂网络同步分析}{14}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}连续监控激发规则}{15}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}离散监控激发规则}{19}{subsection.3.2.2}
+\contentsline {section}{\numberline {3.3}数值模拟}{24}{section.3.3}
+\contentsline {section}{\numberline {3.4}小结}{29}{section.3.4}
+\contentsline {chapter}{\numberline {第4章\hspace {0.3em}}集中式事件激发采样下带部分未知转移率和时滞的复杂网络同步问题}{31}{chapter.4}
+\contentsline {section}{\numberline {4.1}集中式事件激发采样的网络模型}{31}{section.4.1}
+\contentsline {section}{\numberline {4.2}基于集中式事件激发采样的复杂网络同步分析}{33}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}网络的同步判据}{33}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}事件激发时刻间隔的下界}{37}{subsection.4.2.2}
+\contentsline {section}{\numberline {4.3}数值模拟}{39}{section.4.3}
+\contentsline {section}{\numberline {4.4}小结}{42}{section.4.4}
+\contentsline {chapter}{\numberline {第5章\hspace {0.3em}}基于事件激发采样带部分未知转移率和布朗运动的复杂网络同步问题}{43}{chapter.5}
+\contentsline {section}{\numberline {5.1}集中式事件激发采样控制策略}{44}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}集中式事件激发采样带布朗运动的网络模型}{44}{subsection.5.1.1}
+\contentsline {subsection}{\numberline {5.1.2}同步分析}{45}{subsection.5.1.2}
+\contentsline {section}{\numberline {5.2}分散式事件激发采样控制策略}{48}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}分散式事件激发采样带布朗运动的网络模型}{48}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}同步分析}{49}{subsection.5.2.2}
+\contentsline {section}{\numberline {5.3}数值模拟}{50}{section.5.3}
+\contentsline {section}{\numberline {5.4}小结}{53}{section.5.4}
+\contentsline {chapter}{\numberline {第6章\hspace {0.3em}}总结与展望}{55}{chapter.6}
+\contentsline {chapter}{\CJKfamily {zhfs}参\CTEX@spaceChar \CTEX@spaceChar 考\CTEX@spaceChar \CTEX@spaceChar 文\CTEX@spaceChar \CTEX@spaceChar 献}{57}{chapter*.25}
+\contentsline {chapter}{\CJKfamily {zhfs}致\CTEX@spaceChar \CTEX@spaceChar 谢}{63}{chapter*.26}
+\contentsline {chapter}{\CJKfamily {zhfs}攻读硕士学位期间的研究成果}{65}{chapter*.27}

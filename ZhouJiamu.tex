@@ -1,0 +1,137 @@
+%%!Mode:: "Tex:UTF-8"
+\documentclass[notypeinfo,xelatex]{CASthesis}
+% 可选参数：
+% notypeinfo 取消扉页的LaTeX版本信息
+%
+% 下面三个选一个：
+% dvipdfm 使用 dvipdfm(x) 生成最终的 PDF 文档 (缺省设置）
+% dvips 使用 dvips 生成最终的 PS 文档
+% pdftex 使用 pdfLaTeX 生成最终的 PDF 文档
+
+% 设置图形文件的搜索路径
+\graphicspath{{figures/}}
+
+% 取消链接的颜色（黑白打印时）
+\hypersetup{colorlinks=false}
+
+% 小节标题靠左对齐
+%\CTEXsetup[format+={\flushleft}]{section}
+%\titleformat{\chapter}[display]{}{\songti}{1em}{}
+\CTEXsetup[format+={\songti}]{section}
+\CTEXsetup[format+={\songti}]{subsection}
+%\usepackage{titletoc}
+\usepackage{multicol}
+%\renewcommand{\thechapter}{}
+\CTEXsetup[number={\arabic{chapter}}]{chapter}
+
+%\usepackage[title]{tocloft}
+%\renewcommand{\cfttoctitlefont}{\normalfont\MakeUppercase}
+
+%\renewcommand\cftchapfont{\songti\zihao{4}}
+%\renewcommand\cftsecfont{\songti\zihao{4}}
+%
+%\renewcommand\cftchappagefont{\songti\zihao{4}}
+%\renewcommand\cftsecpagefont{\songti\zihao{4}}
+
+\begin{document}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 封面部分
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  % 中文封面内容
+  \classification{O212}
+  \confidential{公开}
+  \UDC{519.2}
+  \serialnumber{}
+
+  \title{随机环境中带分散自适应牵制控制的复杂网络簇同步问题}
+  \englishtitle{English title}
+\titlepageone{随机环境中带分散自适应牵制}
+\titlepagetwo{控制的复杂网络簇同步问题}
+  \author{叶丹凤}
+  \advisor{董海玲~副教授}
+  \advisorinstitute{}
+  \subject{理学}
+  \major{统计学}
+  \submitdate{2016年4月}
+  \defenddate{2016年4月}
+  \institute{数学与统计学院}
+  \school{深圳大学}
+  \schoolid{10590}
+  \degree{硕士}
+  \chairman{}
+
+  % 英文封面内容
+
+
+  % 封面
+  \maketitle
+
+  % 英文封面
+ % \makeenglishtitle
+
+\declare
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 前言部分
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frontmatter
+
+  % 摘要
+  \include{chapter/abstract}
+
+  % 目录
+
+
+
+
+\tableofcontents
+
+  % 表格目录
+  %\listoftables
+  % 插图目录
+  %\listoffigures
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 正文部分
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mainmatter
+
+  \include{chapter/chap-intro}
+  \include{chapter/chap-math}
+  \include{chapter/chap-csnp}
+ \include{chapter/chap-csann}
+ \include{chapter/chap-end}
+
+%
+%  % 附录
+%  \appendix
+%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 附件部分
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\backmatter
+% \include{chapter/end}
+  % 参考文献
+  % 使用 BibTeX
+  %\bibliography{bib/tex}
+  %\nocite{*}
+  % 不使用 BibTeX
+   \include{chapter/bib}
+
+
+  % 个人简历
+  %\include{chapter/resume}
+
+  % 致谢
+  \include{chapter/thanks}
+
+
+  % 发表文章目录
+  \include{chapter/pub}
+\end{document}
